@@ -1,13 +1,13 @@
 LaTeX Typesetting Engine
 
 First and foremost, the project consists of a web portal that provides easy-to-use dropdown menus and text entry matrixes for the creation of LaTeX code. The server-side Python program will later take the necessary user elements provided by the query page and generate professional LaTeX code that may be returned to the user as raw .tex code. Additionally, the user may also set an option for his or her paper to be automatically typesetted using LaTeX, with the server returning a finished PDF file.
- \hline
+ 
  Real Life Applications and Ramifications include the ability to use this LaTeX or TeX code in webpages. It would also allow the person using it to save the file with the code to a subdirectory within marge. We would take proper security measures to make it as hard as we can possibly make it to prevent manipulation and web application exploitation, and would make the subdirectory it would be in not have an index page, revealing the apache conf directory. Using a web scraper (like parsehub or import.io or plain old BeautifulSoup) we can create a query to see existing files created with our tool.
- \hline
+ 
  This is entirely possible since we have the ability to use the MathJax CDN for LaTeX parsing and preprocessing, the python os module, the BeautifulSoup4 module, and the fact that one of us has experience with rendering via the MathJax CDN.
- \hline
- Extra features may include a license page, warning canary, and/or login system that would allow you to associate what files you created with your account (possible via using a database)
-~~
+ 
+ Extra features may include a license page with a warrant canary, and/or login system that would allow you to associate what files you created with your account (possible via using a database)
+
 
 --- Brian Isakov. Jonathan Wong.
 
