@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>Latex Query 0</title>
+</head>
+<body bgcolor="#800000" text="FFFFFF">
+LaTeX Maker
+<br>
+<br>
+<br>
+<form method="GET" action="backend1.py">
+
+Choose typesetting format: <select name="format" size="1">
+  <option selected>Standard (recommended)</option>
+  <option>MLA (Modern Language Association 7)</option>
+  <option>APA</option>
+  <option>Turabian</option>
+  <option>CSE (Council of Science Editors)</option>
+</select>
+<br><br>
+<table border="1">
+<th>Your Name: <input type="text" name="authname" value="Peter Jones"></th>
+<br><br><tr>
+<td>Title: <input type="text" name="title" size=50 value="Analysis of Reports">
+<br><br>
+Date: (can be left empty) <input type="text" name="date">
+</table>
+<br><br>
+Choose "starter" (multiple OK): <select name="starter" multiple>
+  <option value=0 selected>None</option>
+  <option>Abstract</option>
+  <option>Introduction</option>
+  <option>Starter</option><!--
+  <option>Turabian</option>
+  <option>CSE (Council of Science Editors)</option>-->
+</select>
+Starter Text: <br>
+<textarea rows="20" name="starter" cols="100">
+Enter abstract/introduction/etc. here...
+</textarea><br><br>
+Body Text: <br>
+<textarea rows="100" name="body" cols="100">
+Here goes your essay/paper.
+</textarea><br><br>
+I want: 
+<input type="radio" name="function" value="tex"> TeX Code      
+<input type="radio" name="function" value="pdf"> Typeset PDF
+<br><br>
+<input type="checkbox" name="errorcorrect" value="yes" checked="checked">
+ Attempt automatic error corrections? (Uncheck to preserve text completely)
+<br><br>
+<input type="submit" name="submit" value="Submit">
+</form>
+</body>
+</html>
