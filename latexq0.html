@@ -13,7 +13,7 @@
       <br>
       <br>
       <br>
-      <form method="GET" action="backend1.py">
+      <form method="POST" action="processor.py">
          Choose typesetting format: 
          <select name="format" size="1">
             <option selected>Standard (recommended)</option>
@@ -55,6 +55,7 @@ Here goes your essay/paper.
          I want: 
          <input type="radio" name="function" value="tex"> TeX Code      
          <input type="radio" name="function" value="pdf"> Typeset PDF
+	 <input type="radio" name="function" value="webpage"> Webpage (hosted on marge)
          <br><br>
          <input type="checkbox" name="errorcorrect" value="yes" checked="checked">
          Attempt automatic error corrections? (Uncheck to preserve text completely)
