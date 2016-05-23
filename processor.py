@@ -10,7 +10,7 @@ cgitb.enable()
 import os
 import tempfile
 
-latex = tempfile.NamedTemporaryFile()
+latexc = tempfile.NamedTemporaryFile()
 #try:
 #    print 'temp:', temp
 #    print 'temp.name:', temp.name
@@ -44,9 +44,9 @@ lbasic='''
 '''
 finally:
     # Automatically cleans up the file
-    temp.close()
-print 'Exists after close:', os.path.exists(temp.name)
-tex = tempfile.code.tex
+    latexc.close()
+# print 'Exists after close:', os.path.exists(temp.name)
+
 
 
 
