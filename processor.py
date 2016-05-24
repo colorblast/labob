@@ -10,6 +10,9 @@ cgitb.enable()
 import os
 import tempfile
 
+userInput = cgi.FieldStorage()
+
+
 latexc = tempfile.NamedTemporaryFile()
 #try:
 #    print 'temp:', temp
@@ -51,7 +54,7 @@ finally:
 
 
 def main():
-	print HTML_HEADER
-	print HEAD
-	print END
+	#print HTML_HEADER
+	#print HEAD
+	#print END
 main()
