@@ -11,6 +11,15 @@ import os
 import tempfile
 
 userInput = cgi.FieldStorage()
+docFormat = userInput['format'].value
+author = userInput['authname'].value
+title = userInput['title'].value
+date =  userInput['date'].value
+starter = userInput['starter'].value
+starterText = userInput['starterText'].value
+bodyText = userInput['body'].value
+fxn = userInput['function'].value
+
 
 
 latexc = tempfile.NamedTemporaryFile()
