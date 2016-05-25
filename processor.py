@@ -23,10 +23,18 @@ landscape = userInput['landscape'].value
 
 
 
-latexc = tempfile.NamedTemporaryFile()
+latexc = tempfile.NamedTemporaryFile() # DO NOT Erase this line. Temporary file for LaTeX storage.
 #try:
 #    print 'temp:', temp
 #    print 'temp.name:', temp.name
+
+# An MLA Name Breaker:
+def namebreak():
+	namelist=author.split(' ') # This assumes that the name is separated properly by spaces.
+	fname=' '.join(namelist[:-1]) # This assumes that the first name(s) is (are) supplied first in the query page.
+	lname=namelist[-1] # This assumes that the last name is next and last.
+if starter="MLA":
+	namebreak()
 
 # Document Formatting Changes:
 if starter="Standard (recommended)":
@@ -36,9 +44,17 @@ if starter="Turabian":
 if starter="APA":
 	articleclass="apa"
 if starter="MLA":
-	mla="\begin{mla}{"fname"}{"lname"}{"Plname"}{"Classname"}{\today}{Really Cool Title}"
+	articleclass="article"
+	mlapackager="\usepackage{mla}"
+	mla="\begin{mla}{"+fname+"}{"+lname+"}{"+Plname+"}{"+Classname+"}{"+date+"}{"+title+"}"
+	#Warning!: Professor name (Plname) needs to be added to query page!
+	maketitle=""
+	mlastop="\end{mla}"
 if not starter="MLA":
+	mlapackager=""
 	mla=""
+	maketitle="\maketitle"
+	mlastop=""
 #Landscaping:
 if landscape=True:
 	lsss=""
@@ -64,13 +80,20 @@ lbasic='''
 \author{'''+author+'''}
 \date{'''+date+'''}							% Activate to display a given date or no date
 
+'''
++mlapackager+
+'''
+
 \begin{document}
-\maketitle
+'''+maketitle+'''
+'''+mla+'''
 %\section{}
 %\subsection{}
+'''+bodyText+'''
 
-
-
+'''
++mlastop+
+'''
 \end{document}  	
 '''
 finally:
