@@ -118,7 +118,7 @@ finally:
     latexc.close()
 # print 'Exists after close:', os.path.exists(temp.name)
 
-#subprocess.call(['shell scripts/test.sh', str(fileName)])
+#subprocess.call(['shell scripts/convertToPDF.sh', str(fileName)])
 # above statement will need the temp file as fileName for it to be passed to the shell script
 
 
