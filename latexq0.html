@@ -24,7 +24,10 @@
          </select>
          <br><br>
          <table border="1">
-            <th>Your Name: <input type="text" name="authname" value="Peter Jones"></th>
+            <th>Your Name: <input type="text" name="authname" value="First(s) Last"></th><br>Mutltiple names will not work for MLA.<br><br>
+            <td>Your Professor's Last Name <input type="text" name="Plname" value="" placeholder="Dr. Brooks"></td><br><br>
+            <td>Class Name: <input type="text" name="Classname" value="" placeholder="Calculus 101"></input></td>
+            
             <br><br>
             <tr>
                <td>Title: <input type="text" name="title" size=50 value="Analysis of Reports">
@@ -60,6 +63,18 @@ Here goes your essay/paper.
          <input type="checkbox" name="landscape" value="True" checked="checked">
          Format in landscape orientation?
          <br><br>
+         Choose paper size:
+         <select name="paperStyle">
+            <option selected value="letterPaper">US Letter</option>
+            <option value="a4">a4</option>
+            <option value="a5">a5</option>
+         </select>
+         <br><br>
+         <input type="checkbox" name="parseSkip" value="True" checked="checked">
+         Leave unchecked to prevent format overiding format standards.
+         <input type="checkbox" name="qCorrect" value="True" checked="checked">
+         Attempt fixing quotation marks to conform to LaTeX standards?
+	 
          <input type="submit" name="submit" value="Submit">
       </form>
    </body>
