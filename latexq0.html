@@ -5,14 +5,16 @@
 	<style>
 		
 	</style>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>   
 	<link href="css/main.css" rel="stylesheet" type="text/css">
    </head>
    <body>
    	<h1>
-<span class="latex">L<sup>a</sup>T<sub>e</sub>X</span> Labob</h1>
+<span class="latex">L<sup>a</sup>T<sub>e</sub>X</span><span id="title"> Labob<br><small id="authors">Brian Isakov and Jonathan Wong</small></span></h1>
       <br>
       <br>
       <br>
+       <div id="body">
       <form method="POST" action="processor.py">
          Choose typesetting format: 
          <select name="format" size="1">
@@ -77,5 +79,10 @@ Here goes your essay/paper.
 	 
          <input type="submit" name="submit" value="Submit">
       </form>
+       <br>
+       <a href="https://github.com/jonw27/labob/LICENSE">License</a>
+       <a href="PrivacyPolicy.txt">Privacy Policy w/ Warrant Canary</a>
+       <a href="about.txt">About this project</a>
+       </div>
    </body>
 </html>
