@@ -27,6 +27,7 @@ latexc = tempfile.NamedTemporaryFile() # DO NOT Erase this line. Temporary file 
 #try:
 #    print 'temp:', temp
 #    print 'temp.name:', temp.name
+fileName=latexc.name
 
 # An MLA Name Breaker:
 def namebreak():
@@ -38,10 +39,29 @@ if starter="MLA":
 
 # Quotation mark Correcter:
 def qcorrecter(string):
+	yandex0=False
+	yandex1=False
 	for x in string:
-		if x=='"':
-			#To-Do~
-		
+		if x=='"' and yandex0=False:
+			string.replace(x,"``")
+			yandex0=True
+		if x=='"' and yandex0=True:
+			string.replace(x,"''")
+			yandex0=False
+		if x=='“':
+			string.replace(x,"``")
+		if x=='”":
+			string.replace(x,"''")
+		if x=="'" and yandex1=False:
+			string.replace(x,"`")
+			yandex1=True
+		if x=="'" and yandex1=True:
+			yandex1=False
+		if x=="‘":
+			string.replace(x,"`")
+		if x=="’":
+			string.replace(x,"'")
+
 
 # Document Formatting Changes:
 if starter="Standard (recommended)":
