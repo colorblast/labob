@@ -21,6 +21,7 @@ bodyText = userInput['body'].value
 fxn = userInput['function'].value
 landscape = userInput['landscape'].value
 paperstyle = userInput['paperStyle'].value
+qCorrect = userInput['qCorrect'].value
 
 
 latexc = tempfile.NamedTemporaryFile() # DO NOT Erase this line. Temporary file for LaTeX storage.
@@ -42,24 +43,24 @@ def qcorrecter(string):
 	yandex0=False
 	yandex1=False
 	for x in string:
-		if x=='"' and yandex0=False:
+		if x == '"' and yandex0=False:
 			string.replace(x,"``")
 			yandex0=True
-		if x=='"' and yandex0=True:
+		if x == '"' and yandex0=True:
 			string.replace(x,"''")
 			yandex0=False
-		if x=='“':
+		if x == '“':
 			string.replace(x,"``")
-		if x=='”":
+		if x == '”":
 			string.replace(x,"''")
-		if x=="'" and yandex1=False:
+		if x == "'" and yandex1=False:
 			string.replace(x,"`")
 			yandex1=True
-		if x=="'" and yandex1=True:
+		if x == "'" and yandex1=True:
 			yandex1=False
-		if x=="‘":
+		if x == "‘":
 			string.replace(x,"`")
-		if x=="’":
+		if x == "’":
 			string.replace(x,"'")
 
 
