@@ -22,7 +22,12 @@ fxn = userInput['function'].value
 landscape = userInput['landscape'].value
 paperstyle = userInput['paperStyle'].value
 qCorrect = userInput['qCorrect'].value
+affiliationN = userInput['AffiliationCHOOSER'].value
+affiliation = userInput['Affiliation'].value
 
+# Text variable clearers:
+if not affiliatioN=="True":
+	affiliation=""
 
 latexc = tempfile.NamedTemporaryFile() # DO NOT Erase this line. Temporary file for LaTeX storage.
 #try:
@@ -65,41 +70,41 @@ def qcorrecter(string):
 
 
 # Document Formatting Changes:
-if starter="Standard (recommended)":
+if starter=="Standard (recommended)":
 	articleclass="article"
-if starter="Turabian":
+if starter=="Turabian":
 	## ADD NEW QUERY
-if starter="APA":
+if starter=="APA":
 	articleclass="apa6" # http://ctan.mackichan.com/macros/latex/contrib/apa6/apa6.pdf
 	apaAffiliation="\affiliation{"+affiliation+"}" #Warning! New affiliation needs to be added to query page!
-if starter="MLA":
+if starter=="MLA":
 	articleclass="article"
 	mlapackager="\usepackage{mla}"
 	mla="\begin{mla}{"+fname+"}{"+lname+"}{"+Plname+"}{"+Classname+"}{"+date+"}{"+title+"}"
 	#Warning!: Professor name (Plname) needs to be added to query page!
 	maketitle=""
 	mlastop="\end{mla}"
-if not starter="MLA":
+if not starter=="MLA":
 	mlapackager=""
 	mla=""
 	maketitle="\maketitle"
 	mlastop=""
-if not starter="APA":
+if not starter=="APA":
 	apaAffiliation=""
 #Landscaping:
-if landscape=True:
+if landscape=="True":
 	lsss=""
 else:
 	lsss="%"
 
 # Begin paragraphs with an empty line rathen than an intent:
-if parseSkip=True:
+if parseSkip=="True":
 	psss=''
 else:
 	psss="%"
 
 # Quotation marks corrections
-if qCorrect=True:
+if qCorrect=="True":
 	qcorrecter(author)
 	qcorrecter(title)
 	qcorrecter(date)
@@ -108,11 +113,11 @@ if qCorrect=True:
 	# Any more fields need to have quotation marks corrected?
 
 lbasic='''
-\documentclass[11pt, oneside]{'''articleclass'''}   	% use "amsart" instead of "article" for AMSLaTeX format
+\documentclass[11pt, oneside]{'''+articleclass+'''}   	% use "amsart" instead of "article" for AMSLaTeX format
 \usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
-\geometry{'''paperstyle'''}                   		% ... or a4paper or a5paper or ... 
-'''lsss'''\geometry{landscape}                		% Activate for rotated page geometry
-'''psss'''\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\geometry{'''+paperstyle+'''}                   		% ... or a4paper or a5paper or ... 
+'''+lsss+'''\geometry{landscape}                		% Activate for rotated page geometry
+'''+psss+'''\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
 \usepackage{graphicx}				% Use pdf, png, jpg, or epsÂ§ with pdflatex; use eps in DVI mode
 								% TeX will automatically convert eps --> pdf in pdflatex		
 \usepackage{amssymb}
@@ -122,7 +127,7 @@ lbasic='''
 %SetFonts
 
 
-\title{'''+title'''}
+\title{'''+title+'''}
 \author{'''+author+'''}
 '''+apaAffiliation+'''
 \date{'''+date+'''}							% Activate to display a given date or no date
