@@ -40,7 +40,7 @@ def namebreak():
 	namelist=author.split(' ') # This assumes that the name is separated properly by spaces.
 	fname=' '.join(namelist[:-1]) # This assumes that the first name(s) is (are) supplied first in the query page.
 	lname=namelist[-1] # This assumes that the last name is next and last.
-if starter="MLA":
+if starter=="MLA":
 	namebreak()
 
 # Quotation mark Correcter:
