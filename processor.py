@@ -69,7 +69,8 @@ if starter="Standard (recommended)":
 if starter="Turabian":
 	## ADD NEW QUERY
 if starter="APA":
-	articleclass="apa"
+	articleclass="apa6" # http://ctan.mackichan.com/macros/latex/contrib/apa6/apa6.pdf
+	apaAffiliation="\affiliation{"+affiliation+"}" #Warning! New affiliation needs to be added to query page!
 if starter="MLA":
 	articleclass="article"
 	mlapackager="\usepackage{mla}"
@@ -82,6 +83,8 @@ if not starter="MLA":
 	mla=""
 	maketitle="\maketitle"
 	mlastop=""
+if not starter="APA":
+	apaAffiliation=""
 #Landscaping:
 if landscape=True:
 	lsss=""
@@ -120,6 +123,7 @@ lbasic='''
 
 \title{'''+title'''}
 \author{'''+author+'''}
+'''+apaAffiliation+'''
 \date{'''+date+'''}							% Activate to display a given date or no date
 
 '''
