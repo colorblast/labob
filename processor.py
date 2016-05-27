@@ -96,7 +96,12 @@ else:
 
 # Quotation marks corrections
 if qCorrect=True:
-	qcorrecter()
+	qcorrecter(author)
+	qcorrecter(title)
+	qcorrecter(date)
+	qcorrecter(starterText)
+	qcorrecter(bodyText)
+	# Any more fields need to have quotation marks corrected?
 
 lbasic='''
 \documentclass[11pt, oneside]{'''articleclass'''}   	% use "amsart" instead of "article" for AMSLaTeX format
