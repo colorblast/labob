@@ -25,6 +25,8 @@ paperstyle = userInput['paperStyle'].value
 qCorrect = userInput['qCorrect'].value
 affiliationN = userInput['AffiliationCHOOSER'].value
 affiliation = userInput['Affiliation'].value
+abstract = userInput['Abstract'].value
+fontsize = userInput['fSize'].value
 
 # Text variable clearers:
 if not affiliatioN=="True":
@@ -74,24 +76,40 @@ mla=""
 maketitle="\maketitle"
 mlastop=""
 apaAffiliation=""
+documentclassb=""
 ## vars ARE DECLARED ON TOP, AND !!!IF!!! they are something they get changed, if NOT !!!IS NOT!!! NEEDED
+# No NEED TO BE ANGRY with iNNEFICIENCY! I am not GERMAN!
 
 # Document Formatting Changes:
-if starter=="Standard (recommended)":
+if starter=="Standard":
 	articleclass="article"
-if starter=="Turabian":
-	## ADD NEW QUERY
-    turabianstuff = 'added to avoid error while debugging'
+	documentclassb=fontsize+", oneside"
+if starter=="Turabian (standard)":
+	articleclass="turabian-formatting"
+	documentclassb=fontsize
+if starter=="Turabian (Research Paper)":
+	articleclass="turabian-researchpaper"
+	documentclassb=fontsize
+if starter=="Turabian (Thesis or Dissertation)":
+	articleclass="turabian-thesis"
+	documentclassb=fontsize
 if starter=="APA":
 	articleclass="apa6" # http://ctan.mackichan.com/macros/latex/contrib/apa6/apa6.pdf
-	apaAffiliation="\affiliation{"+affiliation+"}" #Warning! New affiliation needs to be added to query page!
+	apaAffiliation="\affiliation{"+affiliation+"}"
+	apaAbstract="\abstract{"+abstract+"}" #Warning! New abstract needs to be added to query page!
+	apaKeywords="\keywords{"+keywords+"}"
 if starter=="MLA":
 	articleclass="article"
 	mlapackager="\usepackage{mla}"
 	mla="\begin{mla}{"+fname+"}{"+lname+"}{"+Plname+"}{"+Classname+"}{"+date+"}{"+title+"}"
 	#Warning!: Professor name (Plname) needs to be added to query page!
 	maketitle=""
-	mlastop="\end{mla}"	
+	mlastop="\end{mla}"
+	
+#Important edits for documentclass:
+if not documentclassb=="":
+	documentclassb="["+documentclassb+"]"
+	
 #Landscaping:
 if landscape=="True":
 	lsss=""
@@ -114,7 +132,7 @@ if qCorrect=="True":
 	# Any more fields need to have quotation marks corrected?
 
 lbasic='''
-\documentclass[11pt, oneside]{'''+articleclass+'''}   	% use "amsart" instead of "article" for AMSLaTeX format
+\documentclass'''+documentclassb+'''{'''+articleclass+'''}   	% use "amsart" instead of "article" for AMSLaTeX format
 \usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
 \geometry{'''+paperstyle+'''}                   		% ... or a4paper or a5paper or ... 
 '''+lsss+'''\geometry{landscape}                		% Activate for rotated page geometry
