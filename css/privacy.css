@@ -1,0 +1,27 @@
+h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    text-align: center;
+    font-size: 90px;
+}
+h2 {
+    font-family: Helvetica, sans-serif;
+    font-weight: 100;
+    font-style: italic;
+    text-align: center;
+    margin-top: -10px;
+}
+#container {
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 50%;
+    border-style: solid;
+    font-family: Cambria, serif;
+}
+#container p {
+    margin-left: 20px;
+    text-indent: 50px;
+    margin-right: 20px;
+    text-align: justify;
+    line-height: 200%;
+}
