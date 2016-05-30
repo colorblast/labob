@@ -18,11 +18,15 @@
       <form method="POST" action="processor.py">
          Choose typesetting format: 
          <select name="format" size="1">
-            <option selected>Standard (recommended)</option>
-            <option>MLA (Modern Language Association 7)</option>
-            <option>APA</option>
-            <option>Turabian</option>
-            <option>CSE (Council of Science Editors)</option>
+            <option selected>Standard</option>
+            <option>MLA 7 (Modern Language Association 7th Edition)</option>
+            <option>APA 6 (American Psychological Association 6th Edition)</option>
+            <option>Turabian (Standard)</option>
+			<option>Turabian (Research Paper)</option>
+			<option>Turabian (Thesis or Dissertation)</option>
+			<option value="" disabled selected style="font-style: italic;">Note: Turabian is a predecessor to Chicago format.</option>
+            <!--<option>CSE (Council of Science Editors)</option>
+			Unfortunately, there is no style guide in CTAN or around the web for CSE formatting with LaTeX.-->
          </select>
          <br><br>
          <table border="1">
