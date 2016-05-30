@@ -1,4 +1,5 @@
 #! /usr/bin/python
+# -*- coding: utf-8 -*-
 
 import cgi
 
@@ -56,7 +57,7 @@ def qcorrecter(string):
 			yandex0=False
 		if x == '“': #WARNING! CHARACTER NOT SUPPORTED!
 			string.replace(x,"``")
-		if x == '”":
+		if x == '”':
 			string.replace(x,"''")
 		if x == "'" and yandex1==False:
 			string.replace(x,"`")
@@ -68,12 +69,19 @@ def qcorrecter(string):
 		if x == "’":
 			string.replace(x,"'")
 
+mlapackager=""
+mla=""
+maketitle="\maketitle"
+mlastop=""
+apaAffiliation=""
+## vars ARE DECLARED ON TOP, AND !!!IF!!! they are something they get changed, if NOT !!!IS NOT!!! NEEDED
 
 # Document Formatting Changes:
 if starter=="Standard (recommended)":
 	articleclass="article"
 if starter=="Turabian":
 	## ADD NEW QUERY
+    turabianstuff = 'added to avoid error while debugging'
 if starter=="APA":
 	articleclass="apa6" # http://ctan.mackichan.com/macros/latex/contrib/apa6/apa6.pdf
 	apaAffiliation="\affiliation{"+affiliation+"}" #Warning! New affiliation needs to be added to query page!
@@ -83,14 +91,7 @@ if starter=="MLA":
 	mla="\begin{mla}{"+fname+"}{"+lname+"}{"+Plname+"}{"+Classname+"}{"+date+"}{"+title+"}"
 	#Warning!: Professor name (Plname) needs to be added to query page!
 	maketitle=""
-	mlastop="\end{mla}"
-if not starter=="MLA":
-	mlapackager=""
-	mla=""
-	maketitle="\maketitle"
-	mlastop=""
-if not starter=="APA":
-	apaAffiliation=""
+	mlastop="\end{mla}"	
 #Landscaping:
 if landscape=="True":
 	lsss=""
@@ -132,9 +133,7 @@ lbasic='''
 '''+apaAffiliation+'''
 \date{'''+date+'''}							% Activate to display a given date or no date
 
-'''
-+mlapackager+
-'''
+'''+mlapackager+'''
 
 \begin{document}
 '''+maketitle+'''
@@ -143,14 +142,14 @@ lbasic='''
 %\subsection{}
 '''+bodyText+'''
 
-'''
-+mlastop+
-'''
+'''+mlastop+'''
 \end{document}  	
 '''
-finally:
+# string concatenation needs to be on the same line!
+
+#finally:     got rid of finally because that's not needed unless an exception is thrown and if an exception if thrown and you want to use finally you need a try statement
     # Automatically cleans up the file
-    latexc.close()
+latexc.close()
 # print 'Exists after close:', os.path.exists(temp.name)
 
 #subprocess.call(['shell scripts/convertToPDF.sh', str(fileName)])
@@ -161,4 +160,5 @@ def main():
 	#print HTML_HEADER
 	#print HEAD
 	#print END
+    stuff = 'stuff to avoid throwing exception'
 main()
