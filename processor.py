@@ -29,7 +29,7 @@ abstract = userInput['Abstract'].value
 fontsize = userInput['fSize'].value
 
 # Text variable clearers:
-if not affiliatioN=="True":
+if not userinput.getvalue('AffliationCHOOSER'):
 	affiliation=""
 
 latexc = tempfile.NamedTemporaryFile() # DO NOT Erase this line. Temporary file for LaTeX storage.
