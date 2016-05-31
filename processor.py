@@ -27,6 +27,7 @@ affiliationN = userInput['AffiliationCHOOSER'].value
 affiliation = userInput['Affiliation'].value
 abstract = userInput['Abstract'].value
 fontsize = userInput['fSize'].value
+parseSkip = userInput['parseSkip'].value
 
 # Text variable clearers:
 if not userInput.getvalue('AffliationCHOOSER'):
@@ -135,7 +136,7 @@ if landscape=="True":
 else:
 	lsss="%"
 
-# Begin paragraphs with an empty line rathen than an intent:
+# Begin paragraphs with an empty line rathen than an indent:
 if parseSkip=="True":
 	psss=''
 else:
