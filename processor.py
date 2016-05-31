@@ -100,9 +100,9 @@ mlastop=""
 apaAffiliation=""
 documentclassb=""
 
+articleclass="article"
 # Document Formatting Changes:
 if docFormat == "Standard":
-	articleclass="article"
 	documentclassb=fontsize+", oneside"
 if docFormat == "Turabian (standard)":
 	articleclass="turabian-formatting"
