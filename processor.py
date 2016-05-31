@@ -147,7 +147,7 @@ if qCorrect=="True":
 	qcorrecter(author)
 	qcorrecter(title)
 	qcorrecter(date)
-	qcorrecter(starterText)
+	#qcorrecter(starterText)
 	qcorrecter(bodyText)
 	# Any more fields need to have quotation marks corrected?
 
