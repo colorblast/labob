@@ -28,6 +28,7 @@ affiliation = userInput['Affiliation'].value
 abstract = userInput['Abstract'].value
 fontsize = userInput['fSize'].value
 parseSkip = userInput['parseSkip'].value
+apaKeywords = userInput['Keywords'].value
 
 # Text variable clearers:
 if not userInput.getvalue('AffliationCHOOSER'):
