@@ -3,14 +3,19 @@
    <head>
       <title>Latex Query</title>
 	<style>
-		
+        .author {
+            color: white;
+        }
+        .author:hover {
+            color: #00FFFF;
+        }
 	</style>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>   
 	<link href="css/main.css" rel="stylesheet" type="text/css">
    </head>
    <body>
    	<h1>
-<span class="latex">L<sup>a</sup>T<sub>e</sub>X</span><span id="title"> Labob<br><small id="authors">Brian Isakov and Jonathan Wong</small></span></h1>
+<span class="latex">L<sup>a</sup>T<sub>e</sub>X</span><span id="title"> Labob<br><small id="authors">Brian Isakov and <a href="http://hackthe.tech" class="author">Jonathan Wong</a></small></span></h1>
       <br>
       <br>
       <br>
@@ -33,7 +38,7 @@
          <br><br>
          <table border="1">
             <th>Your Name: <input type="text" name="authname" placeholder="First(s) Last"></th><br>Multiple names will not work for MLA.<br><br>
-            <tr><td><br>Your Professor's Last Name <input type="text" name="Plname" value="" placeholder="Dr. Brooks"><br><br>
+            <tr><td><br>Your Professor's Last Name: <input type="text" name="Plname" value="" placeholder="Dr. Brooks"><br><br>
              Title: <input type="text" name="title" size=50 placeholder="Analysis of Reports">
                   <br><br>
                   Date: (can be left empty) <input type="text" name="date"><br><br>
