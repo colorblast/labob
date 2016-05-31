@@ -23,13 +23,13 @@
       <form method="POST" action="processor.py">
          Choose typesetting format: 
          <select name="format" size="1">
-            <option selected>Standard</option>
-            <option>MLA 7 (Modern Language Association 7th Edition)</option>
-            <option>APA 6 (American Psychological Association 6th Edition)</option>
+            <option selected value="Standard">Standard</option>
+            <option value="MLA">MLA 7 (Modern Language Association 7th Edition)</option>
+            <option value="APA">APA 6 (American Psychological Association 6th Edition)</option>
             <option>Turabian (Standard)</option>
-			<option>Turabian (Research Paper)</option>
-			<option>Turabian (Thesis or Dissertation)</option>
-			<option value="" disabled id="spec"><i>Note: Turabian is a predecessor to Chicago format.</i></option>
+		<option value="Turabian (Research Paper)">Turabian (Research Paper)</option>
+		<option value="Turabian (Thesis or Dissertation)">Turabian (Thesis or Dissertation)</option>
+		<option value="" disabled id="spec"><i>Note: Turabian is a predecessor to Chicago format.</i></option>
             <!--<option>CSE (Council of Science Editors)</option>
 			Unfortunately, there is no style guide in CTAN or around the web for CSE formatting with LaTeX.-->
          </select>
@@ -80,8 +80,8 @@
             <option value="a5">a5</option>
          </select>
          <br><br>
-         <input type="checkbox" name="parseSkip" value="True" checked="checked">
-         Leave unchecked to prevent format overiding format standards.
+         <input type="checkbox" name="parseSkip" value="True" checked="checked"> Activate to begin paragraphs with an empty line rather than an indent.<br>
+         <i>Leave unchecked to prevent format overiding format standards.</i><br><br>
          <input type="checkbox" name="qCorrect" value="True" checked="checked">
          Attempt fixing quotation marks to conform to LaTeX standards?
 	 
