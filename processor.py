@@ -57,7 +57,7 @@ def qcorrecter(string):
 		if x == '"' and yandex0==True:
 			string.replace(x,"''")
 			yandex0=False
-		if x == '“': #WARNING! CHARACTER NOT SUPPORTED!
+		if x == '“':
 			string.replace(x,"``")
 		if x == '”':
 			string.replace(x,"''")
@@ -77,8 +77,6 @@ maketitle="\maketitle"
 mlastop=""
 apaAffiliation=""
 documentclassb=""
-## vars ARE DECLARED ON TOP, AND !!!IF!!! they are something they get changed, if NOT !!!IS NOT!!! NEEDED
-# No NEED TO BE ANGRY with iNNEFICIENCY! I am not GERMAN!
 
 # Document Formatting Changes:
 if starter=="Standard":

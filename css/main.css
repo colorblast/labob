@@ -47,3 +47,7 @@ body {
     margin-left: 50px;
     margin-bottom: 50px;
 }
+
+#spec {
+    font-style: italic;
+}
