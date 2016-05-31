@@ -1,0 +1,71 @@
+easyMark - Simplify LaTeX.
+           Simplify document preparation.
+           Simplify life!
+
+A example-based guide to the easyMark LaTeX shortcut engine:
+Remember to respect line breaks!
+
+MAKING LISTS
+
+Make a numbered list:
+Caution: Respect spaces in between "~" and the list elements themselves.
+~start-list
+~ Item 1
+~ Item 2
+~ Item 3
+~end-list
+
+Make a nested numbered list:
+~start-list
+~ Item 1
+~start-list
+~ Sub-Item 1
+~ Sub-Item 2
+~end list
+~ Item 2
+~ Item 3
+~end-list
+Note: This nested structure can be expanded to any number of nested lists, as long as more nesting.
+
+Make a bulleted list:
+~start-bullets
+~ Item
+~ Item
+~end-bullets
+Note: The same nested structure can be used as above for the numbered list.
+
+Make a custom list:
+~start-custom-list
+~ [Name 1] Item 1
+~ [Name 2] Item 2
+~end-custom-list
+Note: The same nested structure can be used as above for the numbered list.
+=====================================================================================
+
+STRUCTURING YOUR PAPER
+Document structures are numbered by default in standard format.
+
+Making Chapters:
+~chapter [Chapter Name]
+Chapter content goes here.
+
+Making Sections:
+~section [Section Name]
+Section content goes here.
+
+Making Subsections:
+~subsection [Subsection Name]
+Subsection content goes here.
+
+Making Sub-sub-sections:
+~subsubsection [Subsubsection name]
+Sub-sub-section content goes here.
+======================================================================================
+
+VISUAL BREAKS AND SYNTAX
+
+Create a horizontal line break:
+~hoz-line-break
+
+Create a page break:
+~new-page
