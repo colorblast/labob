@@ -186,15 +186,18 @@ lbasic='''
 
 #finally:     got rid of finally because that's not needed unless an exception is thrown and if an exception if thrown and you want to use finally you need a try statement
     # Automatically cleans up the file
-latexc.close()
+
 # print 'Exists after close:', os.path.exists(temp.name)
 
 #subprocess.call(['shell scripts/convertToPDF.sh', str(fileName)])
 # above statement will need the temp file as fileName for it to be passed to the shell script
 
+latexc.write(lbasic)
+
 # Document Handling:
 if fxn=="TeX Code":
 	print(lbasic)
+	# Or, use the latexc file that has lbasic written in.
 
 def main():
 	#print HTML_HEADER
@@ -202,3 +205,6 @@ def main():
 	#print END
     stuff = 'stuff to avoid throwing exception'
 main()
+
+# Let's close this file at the very end:
+latexc.close()
