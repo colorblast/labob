@@ -71,6 +71,27 @@ def qcorrecter(string):
 		if x == "’":
 			string.replace(x,"'")
 
+def easyMark(string):
+	for x in range(len(string)):
+		if string[x]=="~":
+			if string[x:x+11]=="~start-list":
+				string=string[:x]+"\begin{enumerate}"+string[x+11:]
+			if string[x:x+9]=="~end-list":
+				string=string[:x]+"\end{enumerate}"+string[x+9:]
+			if string[x:x+2]=="~ ":
+				string=string[:x]+"\item "+string[x+2:]
+			if string[x:x+14]=="~start-bullets":
+				string=string[:x]+"\begin{itemize}"+string[x+14:]
+			if string[x:x+12]=="~end-bullets":
+				string=string[:x]+"\end{itemize}"+string[x+12:]
+			if string[x:x+18]=="~start-custom-list":
+				string=string[:x]+"\begin{description}"+string[x+18:]
+			if string[x:x+16]=="~end-custom-list":
+				string=string[:x]+"\end{description}"+string[x+16:]
+			if type(string[x+1])==type("a"):
+				1+1 #Set a descriptor-allowing syntax here! To-Do!
+			# More to do! Using this new syntax, set up a section namer!
+
 mlapackager=""
 mla=""
 maketitle="\maketitle"
