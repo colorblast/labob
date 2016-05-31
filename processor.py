@@ -43,7 +43,7 @@ def namebreak():
 	namelist=author.split(' ') # This assumes that the name is separated properly by spaces.
 	fname=' '.join(namelist[:-1]) # This assumes that the first name(s) is (are) supplied first in the query page.
 	lname=namelist[-1] # This assumes that the last name is next and last.
-if starter=="MLA":
+if docFormat == "MLA":
 	namebreak()
 
 # Quotation mark Correcter:
@@ -100,24 +100,24 @@ apaAffiliation=""
 documentclassb=""
 
 # Document Formatting Changes:
-if starter=="Standard":
+if docFormat == "Standard":
 	articleclass="article"
 	documentclassb=fontsize+", oneside"
-if starter=="Turabian (standard)":
+if docFormat == "Turabian (standard)":
 	articleclass="turabian-formatting"
 	documentclassb=fontsize
-if starter=="Turabian (Research Paper)":
+if docFormat == "Turabian (Research Paper)":
 	articleclass="turabian-researchpaper"
 	documentclassb=fontsize
-if starter=="Turabian (Thesis or Dissertation)":
+if docFormat == "Turabian (Thesis or Dissertation)":
 	articleclass="turabian-thesis"
 	documentclassb=fontsize
-if starter=="APA":
+if docFormat == "APA":
 	articleclass="apa6" # http://ctan.mackichan.com/macros/latex/contrib/apa6/apa6.pdf
 	apaAffiliation="\affiliation{"+affiliation+"}"
 	apaAbstract="\abstract{"+abstract+"}" #Warning! New abstract needs to be added to query page!
 	apaKeywords="\keywords{"+keywords+"}"
-if starter=="MLA":
+if docFormat == "MLA":
 	articleclass="article"
 	mlapackager="\usepackage{mla}"
 	mla="\begin{mla}{"+fname+"}{"+lname+"}{"+Plname+"}{"+Classname+"}{"+date+"}{"+title+"}"
