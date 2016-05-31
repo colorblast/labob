@@ -192,6 +192,9 @@ latexc.close()
 #subprocess.call(['shell scripts/convertToPDF.sh', str(fileName)])
 # above statement will need the temp file as fileName for it to be passed to the shell script
 
+# Document Handling:
+if fxn=="TeX Code":
+	print(lbasic)
 
 def main():
 	#print HTML_HEADER
