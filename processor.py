@@ -76,6 +76,7 @@ def qcorrecter(string):
 def easyMark(string):
 	for x in range(len(string)):
 		if string[x]=="~":
+			# Making Lists:
 			if string[x:x+11]=="~start-list":
 				string=string[:x]+"\begin{enumerate}"+string[x+11:]
 			if string[x:x+9]=="~end-list":
@@ -90,9 +91,12 @@ def easyMark(string):
 				string=string[:x]+"\begin{description}"+string[x+18:]
 			if string[x:x+16]=="~end-custom-list":
 				string=string[:x]+"\end{description}"+string[x+16:]
-			if type(string[x+1])==type("a"):
-				1+1 #Set a descriptor-allowing syntax here! To-Do!
-			# More to do! Using this new syntax, set up a section namer!
+			# Structuring Your Paper:
+			if string[x:x+10]=="~chapter [":
+				yandexf=string.find("]", x+10)
+				string=string[:x]+"\chapter{"+string[x+10:yandexf]+"}"+string[yandexf+1:]
+			# easyMark is failing in actually working!
+	return(string)
 
 mlapackager=""
 mla=""
