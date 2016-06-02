@@ -7,6 +7,7 @@ import cgitb
 cgitb.enable()
 
 #HTML_HEADER = 'Content-type: text/html'
+texxx = 'Content-type: text'
 
 import os
 import tempfile
@@ -202,6 +203,7 @@ latexc.write(lbasic)
 
 # Document Handling:
 if fxn=="TeX Code":
+	print(texxx)
 	print(lbasic)
 	# Or, use the latexc file that has lbasic written in.
 
