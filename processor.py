@@ -24,7 +24,7 @@ fxn = userInput['function'].value
 landscape = userInput['landscape'].value
 paperstyle = userInput['paperStyle'].value
 qCorrect = userInput['qCorrect'].value
-affliation = ""
+affiliation = ""
 if userInput.getvalue('AfflationCHOOSER'):
     affiliation = userInput['Affiliation'].value
 #affiliationN = userInput['AffiliationCHOOSER'].value
