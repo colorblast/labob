@@ -202,17 +202,11 @@ lbasic='''
 latexc.write(lbasic)
 
 # Document Handling:
-if fxn=="TeX Code":
-	print(texplainheader)
-	print(lbasic)
+def texman():
+    print texplainheader
+    print lbasic
 	# Or, use the latexc file that has lbasic written in.
-
-def main():
-	#print HTML_HEADER
-	#print HEAD
-	#print END
-    stuff = 'stuff to avoid throwing exception'
-main()
+texman()
 
 # Let's close this file at the very end:
 latexc.close()
