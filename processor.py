@@ -7,7 +7,7 @@ import cgitb
 cgitb.enable()
 
 #HTML_HEADER = 'Content-type: text/html'
-texplainheader = '"Content-Type: text/plain"'
+texplainheader = "Content-Type: text/plain"
 
 import os
 import tempfile
