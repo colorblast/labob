@@ -13,7 +13,7 @@ import os
 import tempfile
 
 userInput = cgi.FieldStorage()
-if not userInput.getvalue('format') or not userInput.getvalue('authname') or not userInput.getvalue('title') or not userInput.getvalue('date') or not userInput.getvalue('body') or or not userInput.getvalue('function') or not userInput.getvalue('landscape') or not userInput.getvalue('paperStyle') or not userInput.getvalue('qCorrect') or not userInput.getvalue('Affliation') or not userInput.getvalue('Abstract') or not userInput.getvalue('fSize') or not userInput.getvalue('parseSkip') or not userInput.getvalue('keywords'):
+if not userInput.getvalue('format') or not userInput.getvalue('authname') or not userInput.getvalue('title') or not userInput.getvalue('date') or not userInput.getvalue('body') or not userInput.getvalue('function') or not userInput.getvalue('landscape') or not userInput.getvalue('paperStyle') or not userInput.getvalue('qCorrect') or not userInput.getvalue('Affliation') or not userInput.getvalue('Abstract') or not userInput.getvalue('fSize') or not userInput.getvalue('parseSkip') or not userInput.getvalue('keywords'):
     return 'A field was left empty'
 docFormat = userInput['format'].value
 author = userInput['authname'].value
