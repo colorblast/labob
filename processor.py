@@ -30,7 +30,10 @@ if userInput.getvalue('AfflationCHOOSER'):
     affiliation = userInput['Affiliation'].value
 #affiliationN = userInput['AffiliationCHOOSER'].value
 abstract = userInput['Abstract'].value
-fontsize = userInput['fSize'].value
+try:
+    fontsize = userInput['fSize'].value
+except:
+    fontsize=''
 parseSkip = userInput['parseSkip'].value
 keywords = userInput['Keywords'].value
 
@@ -115,7 +118,7 @@ articleclass="article"
 # Document Formatting Changes:
 if docFormat == "Standard":
 	documentclassb=fontsize+", oneside"
-if docFormat == "Turabian (standard)":
+if docFormat == "Turabian (Standard)":
 	articleclass="turabian-formatting"
 	documentclassb=fontsize
 if docFormat == "Turabian (Research Paper)":
