@@ -250,7 +250,7 @@ def texman():
         g = open('output.tex', 'wU')
         g.write(lbasic)
         g.close()
-        subprocess.call(['shell scripts/convertToPDF.sh', 'output.tex']
+        subprocess.call(['shell scripts/convertToPDF.sh', 'output.tex'])
         print redirectPDF
     else:
         g = open('output.html', 'wU')
