@@ -36,6 +36,8 @@ except:
     fontsize=''
 parseSkip = userInput['parseSkip'].value
 keywords = userInput['Keywords'].value
+Plname = userInput['Plname'].value
+Classname = userInput['Classname'].value
 
 # Text variable clearers:  
 
@@ -56,6 +58,8 @@ def namebreak():
 	fname=' '.join(namelist[:-1]) # This assumes that the first name(s) is (are) supplied first in the query page.
 	global lname
 	lname=namelist[-1] # This assumes that the last name is next and last.
+	if fname=="":
+		fname="FirstName?"
 if docFormat == "MLA":
 	namebreak()
 
@@ -115,6 +119,7 @@ maketitle="\maketitle"
 mlastop=""
 apaAffiliation=""
 documentclassb=""
+graphicxstopper=""
 
 articleclass="article"
 # Document Formatting Changes:
@@ -137,11 +142,12 @@ if docFormat == "APA":
 if docFormat == "MLA":
 	articleclass="article"
 	mlapackager="\usepackage{mla}"
-	mla="\begin{mla}{"+fname+"}{"+lname+"}{"+Plname+"}{"+Classname+"}{"+date+"}{"+title+"}"
+	mla=r"\begin{mla}{"+fname+"}{"+lname+"}{"+Plname+"}{"+Classname+"}{"+date+"}{"+title+"}"
 	#Warning!: Professor name (Plname) needs to be added to query page!
 	maketitle=""
 	mlastop="\end{mla}"
-	
+	graphicxstopper="%"
+
 #Important edits for documentclass:
 if not documentclassb=="":
 	documentclassb="["+documentclassb+"]"
@@ -173,7 +179,7 @@ lbasic='''
 \geometry{'''+paperstyle+'''}                   		% ... or a4paper or a5paper or ... 
 '''+lsss+'''\geometry{landscape}                		% Activate for rotated page geometry
 '''+psss+'''\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
-\usepackage{graphicx}				% Use pdf, png, jpg, or epsÂ§ with pdflatex; use eps in DVI mode
+'''+graphicxstopper+'''\usepackage{graphicx}				% Use pdf, png, jpg, or epsÂ§ with pdflatex; use eps in DVI mode
 								% TeX will automatically convert eps --> pdf in pdflatex		
 \usepackage{amssymb}
 
