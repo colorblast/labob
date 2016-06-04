@@ -121,7 +121,7 @@ if docFormat == "Turabian (Thesis or Dissertation)":
 	documentclassb=fontsize
 if docFormat == "APA":
 	articleclass="apa6" # http://ctan.mackichan.com/macros/latex/contrib/apa6/apa6.pdf
-	apaAffiliation="\affiliation{"+affiliation+"}"
+	apaAffiliation=r"\affiliation{"+affiliation+"}"
 	apaAbstract="\abstract{"+abstract+"}" #Warning! New abstract needs to be added to query page!
 	apaKeywords="\keywords{"+keywords+"}"
 if docFormat == "MLA":
@@ -172,12 +172,12 @@ lbasic='''
 %SetFonts
 
 
-\title{'''+title+'''}
+'''+r"\title{"+title+'''}
 \author{'''+author+'''}
 '''+apaAffiliation+'''
 \date{'''+date+'''}							% Activate to display a given date or no date
 
-'''+mlapackager+'''
+'''+mlapackager+r'''
 
 \begin{document}
 '''+maketitle+'''
