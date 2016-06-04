@@ -42,6 +42,10 @@ latexc = tempfile.NamedTemporaryFile() # DO NOT Erase this line. Temporary file 
 #    print 'temp.name:', temp.name
 fileName=latexc.name
 
+latextextfile=open('output.tex','w')
+# Important! To prevent file permissions error, crate output.tex file and give all permissions to all users
+#            modify both processor.py and output.tex -> This is not secure, but things work smoothly this way.
+
 # An MLA Name Breaker:
 def namebreak():
 	namelist=author.split(' ') # This assumes that the name is separated properly by spaces.
@@ -201,6 +205,8 @@ lbasic='''
 # above statement will need the temp file as fileName for it to be passed to the shell script
 
 latexc.write(lbasic)
+latextextfile.write(lbasic)
+latextextfile.close()
 
 easystuff = '''
 <!DOCTYPE html>
@@ -235,11 +241,13 @@ stuff = '''
 </html>    
 '''
 
+# Requires JavaScript? Can be avoided! see megatex()
 redirectTEX = '<script>window.location.href="output.tex";</script>'
 redirectPDF = '<script>window.location.href="output.pdf";</script>'
 redirectHTML = '<script>window.location.href="output.html";</script>'
 
 # Document Handling:
+# !! texman() is depreceated.
 def texman():
     print HTML_HEADER
     if fxn == "tex":
@@ -262,7 +270,13 @@ def texman():
         print TELE
     #print texplainheader
 	# Or, use the latexc file that has lbasic written in.
-texman()
+#texman()
+## !! texman() is depreceated.
+
+def megatex():
+    print "Location: output.tex\r\n"
+if fxn=="tex":
+    megatex()
 
 # Let's close this file at the very end:
 latexc.close()
