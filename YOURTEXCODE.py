@@ -6,7 +6,7 @@ import cgi
 import cgitb
 cgitb.enable()
 
-HTML_HEADER = 'Content-type: text/html'
+HTML_HEADER = 'Content-type: text/html\n'
 #texplainheader = "Content-Type: text/plain"
 
 import os
