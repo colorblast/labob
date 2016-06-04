@@ -172,9 +172,9 @@ lbasic='''
 %SetFonts
 
 
-'''+r"\title{"+title+'''}
+'''+r"\title{"+title+r'''}
 \author{'''+author+'''}
-'''+apaAffiliation+'''
+'''+apaAffiliation+r'''
 \date{'''+date+'''}							% Activate to display a given date or no date
 
 '''+mlapackager+r'''
