@@ -242,12 +242,12 @@ redirectPDF = '<script>window.location.href="output.pdf"</script>'
 def texman():
     print HTML_HEADER
     if fxn == "tex":
-        g = open('output.tex', 'wU')
+        g = open('output.tex', 'w')
         g.write(lbasic)
         g.close()
         print redirectTEX
     if fxn == "pdf":
-        g = open('output.tex', 'wU')
+        g = open('output.tex', 'w')
         g.write(lbasic)
         g.close()
         subprocess.call(['shell scripts/convertToPDF.sh', 'output.tex'])
