@@ -245,17 +245,16 @@ def texman():
         g = open('output.tex', 'w')
         g.write(lbasic)
         g.close()
-        print redirectTEX
+        print redirectTEX+morestuff
     if fxn == "pdf":
         g = open('output.tex', 'w')
         g.write(lbasic)
         g.close()
         subprocess.call(['shell scripts/convertToPDF.sh', 'output.tex'])
-        print redirectPDF
+        print redirectPDF+morestuff
     else:
         g = open('output.html', 'wU')
         g.write(stuff)                
-    print morestuff
     #print texplainheader
 	# Or, use the latexc file that has lbasic written in.
 texman()
