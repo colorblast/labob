@@ -48,8 +48,11 @@ latexc = tempfile.NamedTemporaryFile() # DO NOT Erase this line. Temporary file 
 fileName=latexc.name
 
 latextextfile=open('output.tex','w')
-# Important! To prevent file permissions error, crate output.tex file and give all permissions to all users
+# Important! To prevent file permissions error, create output.tex file and give all permissions to all users
 #            modify both processor.py and output.tex -> This is not secure, but things work smoothly this way.
+latexhtmlfile=open('output.html','w')
+# Important! To prevent file permissions error, create output.html file and give all permissions to all users
+#            modify both processor.py and output.html -> This is not secure, but things work smoothly this way.
 
 # An MLA Name Breaker:
 def namebreak():
@@ -215,9 +218,29 @@ lbasic='''
 #subprocess.call(['shell scripts/convertToPDF.sh', str(fileName)])
 # above statement will need the temp file as fileName for it to be passed to the shell script
 
+stuff = '''
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Generated Page</title>
+        <script src="js/renderer.js"></script>
+        <script>
+            function quickAlert() {
+                alert('Please note that this page will be ovewritten. Please save this page as an HTML doc if you would like to keep it. Permanent hosting may later become available.');
+            }
+        </script>
+    </head>
+    <body onload="quickAlert()">
+'''+lbasic+'''
+    </body>
+</html>    
+'''
+
 latexc.write(lbasic)
 latextextfile.write(lbasic)
 latextextfile.close()
+latexhtmlfile.write(stuff)
+latexhtmlfile.close()
 
 easystuff = '''
 <!DOCTYPE html>
@@ -234,23 +257,6 @@ morestuff = '''
 </html>    
 '''
 
-stuff = '''
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>Generated Page</title>
-        <script src="js/main.js"></script>
-        <script>
-            function quickAlert() {
-                alert('Please note that this page will be ovewritten. Please save this page as an HTML doc if you would like to keep it. Permanent hosting may later become available.');
-            }
-        </script>
-    </head>
-    <body onload="quickAlert()">
-'''+lbasic+'''
-    </body>
-</html>    
-'''
 
 # Requires JavaScript? Can be avoided! see megatex()
 redirectTEX = '<script>window.location.href="output.tex";</script>'
@@ -288,6 +294,10 @@ def megatex():
     print "Location: output.tex\r\n"
 if fxn=="tex":
     megatex()
+def htmltex():
+    print "Location: output.html\r\n"
+if fxn=="webpage":
+    htmltex()
 
 # Let's close this file at the very end:
 latexc.close()
