@@ -10,12 +10,12 @@
             color: #00FFFF;
         }
 	</style>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>   
+    <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>  --> 
 	<link href="css/main.css" rel="stylesheet" type="text/css">
    </head>
    <body>
    	<h1>
-<span class="latex">L<sup>a</sup>T<sub>e</sub>X</span><span id="title"> Labob<br><small id="authors">Brian Isakov and <a href="http://hackthe.tech" class="author">Jonathan Wong</a></small></span></h1>
+<span class="latex">L<sup>a</sup>T<sub>e</sub>X</span><span id="title"> Labob<br><small id="authors"><a href="http://tinyurl.com/6chgggo" class="author">Brian Isakov</a> and <a href="http://hackthe.tech" class="author">Jonathan Wong</a></small></span></h1>
       <br>
       <br>
       <br>
@@ -37,13 +37,13 @@
         Pick font size (leave empty to use default autofont setting): <input type="number" name="fSize">
          <br><br>
          <table border="1">
-            <th>Your Name: <input type="text" name="authname" placeholder="First(s) Last"></th><br>Multiple names will not work for MLA.<br><br>
-            <tr><td><br>Your Professor's Last Name: <input type="text" name="Plname" value="" placeholder="Dr. Brooks"><br><br>
-             Title: <input type="text" name="title" size=50 placeholder="Analysis of Reports">
-                  <br><br>
-                  Date: (can be left empty) <input type="text" name="date"><br><br>
-                    Class Name: <input type="text" name="Classname" value="" placeholder="Calculus 101"></input><br><br>
-           Affliation: <input type="checkbox" name="AffiliationCHOOSER" value="True" checked="checked"><input type="text" name="Affiliation" value="" placeholder="Sponsor or University"></input>
+            <th>Basic Information:</th>
+            <tr><td style="white-space: nowrap;"><br>Your Name: <input type="text" name="authname" placeholder="First(s) Last"></th><br><i>For MLA formatting, separate your first and last name with a space.</i><br><br>
+			Title: <input type="text" name="title" size=50 placeholder="Analysis of Reports"><br><br>
+                  Date: <input type="text" name="date"><br><br>
+				  Your Professor's Last Name: <input type="text" name="Plname" value="" placeholder="Dr. Brooks"> <i>for MLA format only; <b>Required by MLA</b></i> &nbsp; &nbsp<br><br>
+                    Class Name: <input type="text" name="Classname" value="" placeholder="Calculus 101"> <i>for MLA format only; <b>Required by MLA</b></i><br><br>
+           Affiliation: <!--<input type="checkbox" name="AffiliationCHOOSER" value="True" checked="checked">--><input type="text" name="Affiliation" value="" placeholder="Sponsor or University"> <i>for APA format only</i></input>
             </td>
              </tr>  
          </table>
@@ -57,16 +57,18 @@
                <option>Turabian</option>
                <option>CSE (Council of Science Editors)</option>
          </select> -->
-         Keywords (Use only for APA formatting; ignored in others): <br>
+         Keywords: <i>for APA format only</i><br>
          <textarea rows="1" name="Keywords" cols="100" placeholder="Biology, synergy, mitochondria..."></textarea>
 </textarea>
          <br><br>
-         Abstract (Use only for APA formatting; ignored in others): <br>
+         Abstract <i>for APA format only</i>: <br>
          <textarea rows="10" name="Abstract" cols="100" placeholder="Enter abstract here..."></textarea>
 </textarea>
          <br><br>
          Body Text: <br>
-         <textarea rows="100" name="body" cols="100" placeholder="Here goes your essay/paper."></textarea>
+         <textarea rows="100" name="body" cols="100" placeholder="Here goes your essay/paper.
+		 
+		 Bill says "This is a test"></textarea>
 </textarea>
          <br><br>
          I want: 
