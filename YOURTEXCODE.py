@@ -252,7 +252,7 @@ def texman():
         g = open('output.tex', 'w')
         g.write(lbasic)
         g.close()
-        subprocess.call(['shell scripts/convertToPDF.sh', 'output.tex'])
+        subprocess.call(['shell scripts/convertToPDF.sh'])
         TELE = redirectPDF+morestuff
         print TELE
     else:

@@ -1,1 +1,1 @@
-pdflatex fileName
+pdflatex output.tex
