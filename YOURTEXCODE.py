@@ -6,10 +6,11 @@ import cgi
 import cgitb
 cgitb.enable()
 
-#HTML_HEADER = 'Content-type: text/html'
-texplainheader = "Content-Type: text/plain"
+HTML_HEADER = 'Content-type: text/html'
+#texplainheader = "Content-Type: text/plain"
 
 import os
+import subprocess
 import tempfile
 
 userInput = cgi.FieldStorage()
@@ -201,10 +202,61 @@ lbasic='''
 
 latexc.write(lbasic)
 
+easystuff = '''
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Generated</title>
+        <meta charset="UTF-8">    
+'''
+
+morestuff = '''
+    </head>
+    <body>
+    </body>
+</html>    
+'''
+
+stuff = '''
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Generated Page</title>
+        <script src="js/main.js"></script>
+        <script>
+            function quickAlert() {
+                alert('Please note that this page will be ovewritten. Please save this page as an HTML doc if you would like to keep it. Permanent hosting may later become available.');
+            }
+        </script>
+    </head>
+    <body onload="quickAlert()">
+'''+lbasic+'''
+    </body>
+</html>    
+'''
+
+redirectTEX = '<script>window.location.href="output.tex"</script>'
+redirectPDF = '<script>window.location.href="output.pdf"</script>'
+
 # Document Handling:
 def texman():
-    print texplainheader
-    print lbasic
+    print HTML_HEADER
+    if fxn == "tex":
+        g = open('output.tex', 'wU')
+        g.write(lbasic)
+        g.close()
+        print redirectTEX
+    if fxn == "pdf":
+        g = open('output.tex', 'wU')
+        g.write(lbasic)
+        g.close()
+        subprocess.call(['shell scripts/convertToPDF.sh', 'output.tex']
+        print redirectPDF
+    else:
+        g = open('output.html', 'wU')
+        g.write(stuff)                
+    print morestuff
+    #print texplainheader
 	# Or, use the latexc file that has lbasic written in.
 texman()
 
