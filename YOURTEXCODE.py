@@ -235,8 +235,8 @@ stuff = '''
 </html>    
 '''
 
-redirectTEX = '<script>window.location.href="output.tex"</script>'
-redirectPDF = '<script>window.location.href="output.pdf"</script>'
+redirectTEX = '<script>window.location.href="output.tex";</script>'
+redirectPDF = '<script>window.location.href="output.pdf";</script>'
 
 # Document Handling:
 def texman():
