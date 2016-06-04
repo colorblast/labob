@@ -1,2 +1,2 @@
 #!/bin/sh
-pdflatex output.tex
+pdflatex ../output.tex
