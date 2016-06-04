@@ -223,6 +223,7 @@ stuff = '''
 <html lang="en">
     <head>
         <title>Generated Page</title>
+        <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
         <script src="js/renderer.js"></script>
         <script>
             function quickAlert() {

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Explaining MathType</title>
+        <meta charset="UTF-8">
+        <meta name="author" content="Jonathan Wong">
+        <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+        <script href="js/renderer.js"></script>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+        <link type="text/css" href="css/privacy.css" rel="stylesheet">
+        <script>
+            function get(x) {
+                alert(x.dataset.origin);
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Explaining MathType</h1>
+        <h2>A short explanation on a simple subject</h2>
+        <div id="container">
+            <p>
+                MathType is heavily based on LaTeX, but is much easier to comprehend. If you would like your math expression to be on a new line simply put two dollar signs at the front of your expression, and at the end of your expression. To clarify things, use curly bracket signs as you would use parentheses.
+            </p>
+            <span onmouseover="get(this)" data-origin="$$e = {1.60 * {10 ^{-19}} C}$$">$$e = {1.60 * {10 ^{-19}} C}$$</span>
+            <p>
+                If you would like an inline equation or expression simply follow the above except place a backslash and beginning of a parentheses in the beginning and a backslash and end parentheses at the end like <span onmouseover="get(this)" data-origin="\(5 + 5\)"><mark>\(5 + 5\)</mark></span>.
+            </p>
+            <p>
+                If you would like something like dividing a whole expression over something you can refer to LaTeX for that (its \over).
+            </p>
+        </div>
+    </body>
+</html>
