@@ -324,7 +324,7 @@ def htmltex():
 if fxn=="webpage" and lbasic.find('<script') == -1:
     htmltex()
 if fxn=="webpage" and lbasic.find('<script') != -1:
-    print "<!DOCTYPE html><head><title>You dun goofed.</title></head><body>Your query was messed up or you tried to do stuff you weren't supposed to do.</body></html>"'''
+    print "<!DOCTYPE html><head><title>You dun goofed.</title></head><body>Your query was messed up or you tried to do stuff you weren't supposed to do.</body></html>"
 
 # Let's close this file at the very end:
 latexc.close()
