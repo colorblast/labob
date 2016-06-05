@@ -296,7 +296,7 @@ def texman():
         g = open('output.tex', 'w')
         g.write(lbasic)
         g.close()
-        subprocess.call(["./convertToPDF.sh", shell=True])
+        subprocess.call(["./convertToPDF.sh"])
         TELE = redirectPDF+morestuff
         print TELE
     else:
@@ -314,7 +314,7 @@ def megatex():
 if fxn=="tex":
     megatex()
 def pdftex():
-    subprocess.call(['./convertToPDF.sh'])
+    subprocess.call(["./convertToPDF.sh"])
     print "Location: output.pdf\r\n"
 if fxn=="pdf":
     pdftex()
