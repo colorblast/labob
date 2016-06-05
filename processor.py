@@ -316,7 +316,7 @@ def megatex():
 if fxn=="tex":
     megatex()
 def pdftex():
-    g = subprocess.call(["./convertToPDF.sh"])
+    #g = subprocess.call(["./convertToPDF.sh"])
     print "Location: output.pdf"
 if fxn=="pdf":
     pdftex()
