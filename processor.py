@@ -319,7 +319,7 @@ def megatex():
 if fxn=="tex":
     megatex()
 def htmltex():
-    print "Location: output.html\r\n"
+    print "Location: "+filePath+"\r\n"
 if fxn=="webpage":
     htmltex()
 
