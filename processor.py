@@ -316,17 +316,17 @@ def megatex():
 if fxn=="tex":
     megatex()
 def pdftex():
-    subprocess.call(["./convertToPDF.sh"])
+    subprocess.call(["./convertToPDF.sh", shell=True])
     print "Location: output.pdf"
 if fxn=="pdf":
     pdftex()
 def htmltex():
     print "Location: "+filePath+"\r\n"
-if fxn=="webpage" and lbasic.find('<script') == -1:
+if fxn=="webpage" and lbasic.find('<script') == -1 and lbasic.find('<iframe') == -1:
     htmltex()
-if fxn=="webpage" and lbasic.find('<script') != -1:
+if fxn=="webpage" and lbasic.find('<script') != -1 or lbasic.find('<iframe') == -1:
     print HTML_HEADER
-    print "<!DOCTYPE html><head><title>You dun goofed.</title></head><body>Your query was messed up or you tried to do stuff you weren't supposed to do.</body></html>"
+    print "<!DOCTYPE html><head><title>You dun goofed.</title></head><body>Your query was messed up or you tried to do stuff you weren't supposed to do.<br><br>if you tried to include the following:<br><ul><li>script tags</li><li>iframes</li></ul><br>then your request was rejected.</body></html>"
 
 # Let's close this file at the very end:
 latexc.close()
