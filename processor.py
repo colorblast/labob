@@ -285,7 +285,7 @@ redirectHTML = '<script>window.location.href="output.html";</script>'
 
 # Document Handling:
 # !! texman() is depreceated.
-def texman():
+'''def texman():
     print HTML_HEADER
     if fxn == "tex":
         g = open('output.tex', 'w')
@@ -305,10 +305,11 @@ def texman():
         g.write(stuff)
         TELE = redirectHTML+morestuff
         print TELE
+'''        
     #print texplainheader
 	# Or, use the latexc file that has lbasic written in.
 #texman()
-## !! texman() is depreceated.
+## !! texman() is deprecated.
 
 def megatex():
     print "Location: output.tex\r\n"
