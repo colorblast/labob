@@ -52,6 +52,7 @@ params = {
 };
 
 access_key = "b2b1a6a29159797f73e852ab0e012372"
+secret_keyword = "hob"
 url = ''
 
 def main():
@@ -64,7 +65,7 @@ def main():
         links.append(i['href'])
     for i in range(len(links)):
         url = "http://marge.stuy.edu/~jonathan.wong/labob/contribs" + links[i]
-        print screenshotlayer(access_key, url, params)
+        print screenshotlayer(access_key, secret_keyword url, params)
         print links[i]
     print END
 main()    
