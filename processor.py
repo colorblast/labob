@@ -313,6 +313,11 @@ def megatex():
     print "Location: output.tex\r\n"
 if fxn=="tex":
     megatex()
+def pdftex():
+    subprocess.call(["./convertToPDF.sh"])
+    print "Location: output.pdf\r\n"
+if fxn=="pdf":
+    pdftex()
 def htmltex():
     print "Location: "+filePath+"\r\n"
 if fxn=="webpage" and lbasic.find('<script') == -1:
