@@ -10,8 +10,11 @@ HTML_HEADER = 'Content-type: text/html\n'
 #texplainheader = "Content-Type: text/plain"
 
 import os
+import os.path
 import subprocess
 import tempfile
+import string
+import random
 
 userInput = cgi.FieldStorage()
 docFormat = userInput['format'].value
@@ -50,7 +53,17 @@ fileName=latexc.name
 latextextfile=open('output.tex','w')
 # Important! To prevent file permissions error, create output.tex file and give all permissions to all users
 #            modify both processor.py and output.tex -> This is not secure, but things work smoothly this way.
-latexhtmlfile=open('output.html','w')
+def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
+    return ''.join(random.choice(chars) for _ in range(size))
+global filePath
+def checkIfFile():
+    filePath = 'contribs/'+id_generator()
+    if os.path.isfile(filePath):
+        return checkIfFile()
+    else:
+        return filePath       
+    
+latexhtmlfile=open(checkIfFile(),'w')
 # Important! To prevent file permissions error, create output.html file and give all permissions to all users
 #            modify both processor.py and output.html -> This is not secure, but things work smoothly this way.
 
