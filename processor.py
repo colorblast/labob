@@ -152,6 +152,7 @@ if docFormat == "Turabian (Thesis or Dissertation)":
 	documentclassb=fontsize
 if docFormat == "APA":
 	articleclass="apa6" # http://ctan.mackichan.com/macros/latex/contrib/apa6/apa6.pdf
+    # theres no APA PACKAGE
 	apaAffiliation=r"\affiliation{"+affiliation+"}"
 	apaAbstract="\abstract{"+abstract+"}" #Warning! New abstract needs to be added to query page!
 	apaKeywords="\keywords{"+keywords+"}"
@@ -250,7 +251,7 @@ stuff = '''
         </style>    
     </head>
     <body>
-'''+'<h1>'+title+'</h1>'+'<h2>'+author+'<br>'+keywords+'</h2>'+bodyText+'''
+'''+'<h1>'+title+'</h1>'+'<h2>'+author+'<br>'+date+'</h2><h3>'+keywords+'</h3>'+bodyText+'''
     </body>
 </html>    
 '''
@@ -315,7 +316,7 @@ if fxn=="tex":
     megatex()
 def pdftex():
     subprocess.call(["./convertToPDF.sh"])
-    print "Location: output.pdf\r\n"
+    print "Location: output.pdf"
 if fxn=="pdf":
     pdftex()
 def htmltex():
