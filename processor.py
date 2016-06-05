@@ -249,7 +249,7 @@ stuff = '''
             }
         </style>    
     </head>
-    <body onload="quickAlert()">
+    <body>
 '''+'<h1>'+title+'</h1>'+'<h2>'+author+'<br>'+keywords+'</h2>'+bodyText+'''
     </body>
 </html>    
@@ -315,8 +315,10 @@ if fxn=="tex":
     megatex()
 def htmltex():
     print "Location: "+filePath+"\r\n"
-if fxn=="webpage":
+if fxn=="webpage" and lbasic.find('<script') == -1:
     htmltex()
+else:
+    print "<!DOCTYPE html><head><title>You dun goofed.</title><body>Your query was messed up or you tried to do stuff you weren't supposed to do.</body></html>"
 
 # Let's close this file at the very end:
 latexc.close()
