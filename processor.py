@@ -152,7 +152,6 @@ if docFormat == "Turabian (Thesis or Dissertation)":
 	documentclassb=fontsize
 if docFormat == "APA":
 	articleclass="apa6" # http://ctan.mackichan.com/macros/latex/contrib/apa6/apa6.pdf
-    # theres no APA PACKAGE
 	apaAffiliation=r"\affiliation{"+affiliation+"}"
 	apaAbstract="\abstract{"+abstract+"}" #Warning! New abstract needs to be added to query page!
 	apaKeywords="\keywords{"+keywords+"}"
@@ -251,7 +250,7 @@ stuff = '''
         </style>    
     </head>
     <body>
-'''+'<h1>'+title+'</h1>'+'<h2>'+author+'<br>'+date+'</h2><h3>'+keywords+'</h3>'+bodyText+'''
+'''+'<h1>'+title+'</h1>'+'<h2>'+author+'<br>'+keywords+'</h2>'+bodyText+'''
     </body>
 </html>    
 '''
@@ -261,6 +260,11 @@ latextextfile.write(lbasic)
 latextextfile.close()
 latexhtmlfile.write(stuff)
 latexhtmlfile.close()
+# def makepdf():
+#     subprocess.Popen("pdflatex output", shell=True)
+if fxn=="pdf":
+    subprocess.Popen("pdflatex output", shell=True)
+    print "Location: output.pdf\r\n"
 
 easystuff = '''
 <!DOCTYPE html>
@@ -314,17 +318,22 @@ def megatex():
     print "Location: output.tex\r\n"
 if fxn=="tex":
     megatex()
-def pdftex():
-    subprocess.call(["./convertToPDF.sh"])
-    print "Location: output.pdf"
-if fxn=="pdf":
-    pdftex()
+# def pdftex():
+#     subprocess.call(["./convertToPDF.sh"])
+#     print "Location: output.pdf\r\n"
+# if fxn=="pdf":
+#     pdftex()
 def htmltex():
     print "Location: "+filePath+"\r\n"
 if fxn=="webpage" and lbasic.find('<script') == -1:
     htmltex()
-if fxn=="webpage" and lbasic.find('<script') != -1:
-    print "<!DOCTYPE html><head><title>You dun goofed.</title></head><body>Your query was messed up or you tried to do stuff you weren't supposed to do.</body></html>"'''
+else:
+    print "<!DOCTYPE html><head><title>You dun goofed.</title></head><body>Your query was messed up or you tried to do stuff you weren't supposed to do.</body></html>"
+
+# def pdftex():
+#     print "Location: google.com\r\n"
+# if fxn=="pdf":
+#     pdftex()
 
 # Let's close this file at the very end:
 latexc.close()
