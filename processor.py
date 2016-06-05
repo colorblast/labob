@@ -11,7 +11,7 @@ HTML_HEADER = 'Content-type: text/html\n'
 
 import os
 import os.path
-from subprocess import call
+from subprocess
 import tempfile
 import string
 import random
@@ -316,7 +316,7 @@ def megatex():
 if fxn=="tex":
     megatex()
 def pdftex():
-    call(["./convertToPDF.sh"], shell=False)
+    subprocess.Popen("pdflatex output", shell=True)
     print "Location: output.pdf"
 if fxn=="pdf":
     pdftex()
