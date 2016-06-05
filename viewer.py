@@ -58,7 +58,7 @@ url = ''
 def main():
     print HTML_HEADER
     print HEAD
-    d = urllib2.urlopen('http://marge.stuy.edu/~jonathan.wong/labob/contribs')
+    d = urllib.urlopen('http://marge.stuy.edu/~jonathan.wong/labob/contribs')
     links = []
     soup = BeautifulSoup(d)
     for i in soup.find_all('a', href=True):
