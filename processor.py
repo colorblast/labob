@@ -11,7 +11,7 @@ HTML_HEADER = 'Content-type: text/html\n'
 
 import os
 import os.path
-from subprocess
+import subprocess
 import tempfile
 import string
 import random
@@ -250,11 +250,7 @@ stuff = '''
         </style>    
     </head>
     <body>
-<<<<<<< HEAD
 '''+'<h1>'+title+'</h1>'+'<h2>'+author+'<br>'+keywords+'</h2>'+bodyText+'''
-=======
-'''+'<h1>'+title+'</h1>'+'<h2>'+author+'<br>'+date+'</h2>'+bodyText+'''
->>>>>>> origin/master
     </body>
 </html>    
 '''
@@ -293,7 +289,7 @@ redirectHTML = '<script>window.location.href="output.html";</script>'
 
 # Document Handling:
 # !! texman() is depreceated.
-'''def texman():
+def texman():
     print HTML_HEADER
     if fxn == "tex":
         g = open('output.tex', 'w')
@@ -313,34 +309,24 @@ redirectHTML = '<script>window.location.href="output.html";</script>'
         g.write(stuff)
         TELE = redirectHTML+morestuff
         print TELE
-'''        
     #print texplainheader
 	# Or, use the latexc file that has lbasic written in.
 #texman()
-## !! texman() is deprecated.
+## !! texman() is depreceated.
 
 def megatex():
     print "Location: output.tex\r\n"
 if fxn=="tex":
     megatex()
-<<<<<<< HEAD
 # def pdftex():
 #     subprocess.call(["./convertToPDF.sh"])
 #     print "Location: output.pdf\r\n"
 # if fxn=="pdf":
 #     pdftex()
-=======
-def pdftex():
-    subprocess.Popen("pdflatex output", shell=True)
-    print "Location: output.pdf"
-if fxn=="pdf":
-    pdftex()
->>>>>>> origin/master
 def htmltex():
     print "Location: "+filePath+"\r\n"
-if fxn=="webpage" and lbasic.find('<script') == -1 and lbasic.find('<iframe') == -1:
+if fxn=="webpage" and lbasic.find('<script') == -1:
     htmltex()
-<<<<<<< HEAD
 else:
     print "<!DOCTYPE html><head><title>You dun goofed.</title></head><body>Your query was messed up or you tried to do stuff you weren't supposed to do.</body></html>"
 
@@ -348,11 +334,6 @@ else:
 #     print "Location: google.com\r\n"
 # if fxn=="pdf":
 #     pdftex()
-=======
-if fxn=="webpage" and lbasic.find('<script') != -1 or lbasic.find('<iframe') == -1:
-    print HTML_HEADER
-    print "<!DOCTYPE html><head><title>You dun goofed.</title></head><body>Your query was messed up or you tried to do stuff you weren't supposed to do.<br><br>if you tried to include the following:<br><ul><li>script tags</li><li>iframes</li></ul><br>then your request was rejected.</body></html>"
->>>>>>> origin/master
 
 # Let's close this file at the very end:
 latexc.close()
