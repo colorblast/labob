@@ -65,7 +65,7 @@ def main():
         links.append(i['href'])
     for i in range(len(links)):
         url = "http://marge.stuy.edu/~jonathan.wong/labob/contribs" + links[i]
-        print screenshotlayer(access_key, secret_keyword url, params)
+        print screenshotlayer(access_key, secret_keyword, url, params)
         print links[i]
     print END
 main()    
