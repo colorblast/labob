@@ -5,7 +5,7 @@ import cgi
 import cgitb
 import urllib, cStringIO
 import hmac
-from hashlib import sha1
+import hashlib
 cgitb.enable()
 from bs4 import BeautifulSoup
 
