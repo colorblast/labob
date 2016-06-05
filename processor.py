@@ -55,7 +55,7 @@ latextextfile=open('output.tex','w')
 #            modify both processor.py and output.tex -> This is not secure, but things work smoothly this way.
 def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
     return ''.join(random.choice(chars) for _ in range(size))
-global filePath
+filePath = ''
 def checkIfFile():
     filePath = 'contribs/'+id_generator()+'.html'
     if os.path.isfile(filePath):
