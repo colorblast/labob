@@ -315,7 +315,7 @@ def megatex():
 if fxn=="tex":
     megatex()
 def pdftex():
-    #subprocess.call(["./convertToPDF.sh"])
+    subprocess.call(["./convertToPDF.sh"])
     print "Location: output.pdf"
 if fxn=="pdf":
     pdftex()
@@ -323,8 +323,8 @@ def htmltex():
     print "Location: "+filePath+"\r\n"
 if fxn=="webpage" and lbasic.find('<script') == -1:
     htmltex()
-else:
-    print "<!DOCTYPE html><head><title>You dun goofed.</title></head><body>Your query was messed up or you tried to do stuff you weren't supposed to do.</body></html>"
+if fxn=="webpage" and lbasic.find('<script') != -1:
+    print "<!DOCTYPE html><head><title>You dun goofed.</title></head><body>Your query was messed up or you tried to do stuff you weren't supposed to do.</body></html>"'''
 
 # Let's close this file at the very end:
 latexc.close()
