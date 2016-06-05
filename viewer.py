@@ -67,3 +67,4 @@ def main():
         print screenshotlayer(access_key, secret_keyword, url, params)
         print links[i]
     print END
+main()    
