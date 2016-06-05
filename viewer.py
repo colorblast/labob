@@ -61,7 +61,7 @@ def main():
     links = []
     soup = BeautifulSoup(d)
     for i in soup.find_all('a', href=True):
-        links.append(a['href'])
+        links.append(i['href'])
     for i in range(len(links)):
         url = "http://marge.stuy.edu/~jonathan.wong/labob/contribs" + links[i]
         print screenshotlayer(access_key, secret_keyword, url, params)
