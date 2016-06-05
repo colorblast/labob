@@ -59,7 +59,7 @@ def main():
     print HEAD
     d = urllib2.urlopen('http://marge.stuy.edu/~jonathan.wong/labob/contribs')
     links = []
-    soup = BeautifulSoup(f)
+    soup = BeautifulSoup(d)
     for i in soup.find_all('a', href=True):
         links.append(a['href'])
     for i in range(len(links)):
