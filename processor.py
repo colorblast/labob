@@ -251,7 +251,7 @@ stuff = '''
         </style>    
     </head>
     <body>
-'''+'<h1>'+title+'</h1>'+'<h2>'+author+'<br>'+date+'</h2><h3>'+keywords+'</h3>'+bodyText+'''
+'''+'<h1>'+title+'</h1>'+'<h2>'+author+'<br>'+date+'</h2>'+bodyText+'''
     </body>
 </html>    
 '''
@@ -325,6 +325,7 @@ def htmltex():
 if fxn=="webpage" and lbasic.find('<script') == -1:
     htmltex()
 if fxn=="webpage" and lbasic.find('<script') != -1:
+    print HTML_HEADER
     print "<!DOCTYPE html><head><title>You dun goofed.</title></head><body>Your query was messed up or you tried to do stuff you weren't supposed to do.</body></html>"
 
 # Let's close this file at the very end:
