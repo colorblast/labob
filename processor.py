@@ -63,7 +63,7 @@ def checkIfFile():
     else:
         return filePath       
     
-latexhtmlfile=open(checkIfFile(),'w')
+latexhtmlfile=open(checkIfFile(),'w+')
 # Important! To prevent file permissions error, create output.html file and give all permissions to all users
 #            modify both processor.py and output.html -> This is not secure, but things work smoothly this way.
 
