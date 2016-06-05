@@ -296,7 +296,7 @@ def texman():
         g = open('output.tex', 'w')
         g.write(lbasic)
         g.close()
-        subprocess.call(["./convertToPDF.sh"])
+        subprocess.call(["./convertToPDF.sh", shell=True])
         TELE = redirectPDF+morestuff
         print TELE
     else:
@@ -314,7 +314,7 @@ def megatex():
 if fxn=="tex":
     megatex()
 def pdftex():
-    subprocess.call(["./convertToPDF.sh"])
+    subprocess.call(['./convertToPDF.sh'])
     print "Location: output.pdf\r\n"
 if fxn=="pdf":
     pdftex()
@@ -323,7 +323,7 @@ def htmltex():
 if fxn=="webpage" and lbasic.find('<script') == -1:
     htmltex()
 else:
-    print "<!DOCTYPE html><head><title>You dun goofed.</title><body>Your query was messed up or you tried to do stuff you weren't supposed to do.</body></html>"
+    print "<!DOCTYPE html><head><title>You dun goofed.</title></head><body>Your query was messed up or you tried to do stuff you weren't supposed to do.</body></html>"
 
 # Let's close this file at the very end:
 latexc.close()
