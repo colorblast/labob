@@ -57,7 +57,7 @@ def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
     return ''.join(random.choice(chars) for _ in range(size))
 def checkIfFile():
     global filePath
-    filePath = 'contribs/'+id_generator()+'.html'
+    filePath = 'pages/'+id_generator()+'.html'
     if os.path.isfile(filePath):
         return checkIfFile()
     else:
