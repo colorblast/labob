@@ -239,6 +239,7 @@ stuff = '''
             h1, h2 {
                 text-align: center;
             }
+        </style>    
     </head>
     <body onload="quickAlert()">
 '''+'<h1>'+title+'</h1>'+'<h2>'+author+'<br>'+keywords+'</h2>'+bodyText+'''
