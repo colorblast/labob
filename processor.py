@@ -241,11 +241,6 @@ stuff = '''
         <meta name="keywords" content="'''+keywords+'''">
         <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
         <script src="js/renderer.js"></script>
-        <script>
-            function quickAlert() {
-                alert('Please note that this page will be ovewritten. Please save this page as an HTML doc if you would like to keep it. Permanent hosting may later become available.');
-            }
-        </script>
         <style>
             @font-face { font-family: latex; src: url('fonts/cmunrm.ttf'); }
             body { font-family: latex, serif; }
