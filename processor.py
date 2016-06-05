@@ -263,7 +263,7 @@ latexhtmlfile.close()
 # def makepdf():
 #     subprocess.Popen("pdflatex output", shell=True)
 if fxn=="pdf":
-    subprocess.Popen("pdflatex output", shell=True)
+    subprocess.Popen("pdflatex output.tex", shell=True)
     print "Location: output.pdf\r\n"
 
 easystuff = '''
