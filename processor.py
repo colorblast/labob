@@ -242,7 +242,7 @@ stuff = '''
         <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
         <script src="js/renderer.js"></script>
         <style>
-            @font-face { font-family: latex; src: url('fonts/cmunrm.ttf'); }
+            @font-face { font-family: latex; src: url('../fonts/cmunrm.ttf'); }
             body { font-family: latex, serif; }
             h1, h2 {
                 text-align: center;
