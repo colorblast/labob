@@ -3,7 +3,7 @@
 import cgi
 
 import cgitb
-import urllib2, cStringIO
+import urllib, cStringIO
 import hmac
 from hashlib import sha1
 cgitb.enable()
@@ -29,7 +29,7 @@ END = '''
 def screenshotlayer(access_key, secret_keyword, url, args):
 
     # encode URL
-    query = urllib2.urlencode(dict(url=url, **args))
+    query = urllib.urlencode(dict(url=url, **args))
 
     # generate md5 secret key
     secret_key = hashlib.md5('{}{}'.format(url, secret_keyword)).hexdigest()
