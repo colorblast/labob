@@ -53,7 +53,10 @@ affiliation = ""
 if userInput.getvalue('AfflationCHOOSER'):
     affiliation = userInput['Affiliation'].value
 #affiliationN = userInput['AffiliationCHOOSER'].value
-abstract = userInput['Abstract'].value
+try:
+    abstract = userInput['Abstract'].value
+except:
+    abstract = ''
 try:
     fontsize = userInput['fSize'].value
 except:
