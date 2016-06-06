@@ -86,7 +86,7 @@ if author=='' and date=='' and title=='' and bodyText=='' and abstract=='':
     abstract="WORKING MEN OF ALL COUNTRIES, UNITE!"
     qCorrect="True"
     bodyText=r'''
-A spectre is haunting Europe--the spectre of Communism.
+A spectre is haunting Europe -- the spectre of Communism.
 All the Powers of old Europe have entered into a holy alliance to
 exorcise this spectre: Pope and Czar, Metternich and Guizot,
 French Radicals and German police-spies.
@@ -579,6 +579,7 @@ def qcorrecter(string):
 			string.replace(x,"`")
 		if x == "’":
 			string.replace(x,"'")
+	return(string)
 
 def easyMark(string):
 	for x in range(len(string)):
