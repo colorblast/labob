@@ -21,7 +21,7 @@ docFormat = userInput['format'].value
 try:
     author = userInput['authname'].value
 except:
-    author = 'anon'
+    author = ''
 try:    
     title = userInput['title'].value
 except:
