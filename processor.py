@@ -512,9 +512,9 @@ Let the ruling classes tremble at a Communistic revolution.\\
 The proletarians have nothing to lose but their chains.\\
 They have a world to win.
 
-\large{textbf{WORKING MEN OF ALL COUNTRIES, UNITE!}}
+\large{\textbf{WORKING MEN OF ALL COUNTRIES, UNITE!}}
 
-\\
+\vfill
 
 \textit{Transcribed by Allen Lutins with assistance from Jim Tarzia.}
 '''
