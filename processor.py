@@ -18,12 +18,24 @@ import random
 
 userInput = cgi.FieldStorage()
 docFormat = userInput['format'].value
-author = userInput['authname'].value
-title = userInput['title'].value
-date =  userInput['date'].value
+try:
+    author = userInput['authname'].value
+except:
+    author = 'anon'
+try:    
+    title = userInput['title'].value
+except:
+    title = ''
+try:    
+    date =  userInput['date'].value
+except:
+    date = ''
 #starter = userInput['starter'].value
 #starterText = userInput['starterText'].value
-bodyText = userInput['body'].value
+try:
+    bodyText = userInput['body'].value
+except:
+    bodyText = ''    
 fxn = userInput['function'].value
 landscape = userInput['landscape'].value
 paperstyle = userInput['paperStyle'].value
