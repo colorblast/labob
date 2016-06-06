@@ -36,10 +36,19 @@ try:
     bodyText = userInput['body'].value
 except:
     bodyText = ''    
-fxn = userInput['function'].value
-landscape = userInput['landscape'].value
+try:
+    fxn = userInput['function'].value
+except:
+    fxn = 'tex'
+try:    
+    landscape = userInput['landscape'].value
+except:
+    landscape = ''    
 paperstyle = userInput['paperStyle'].value
-qCorrect = userInput['qCorrect'].value
+try:
+    qCorrect = userInput['qCorrect'].value
+except:
+    qCorrect = ''
 affiliation = ""
 if userInput.getvalue('AfflationCHOOSER'):
     affiliation = userInput['Affiliation'].value
@@ -49,10 +58,22 @@ try:
     fontsize = userInput['fSize'].value
 except:
     fontsize=''
-parseSkip = userInput['parseSkip'].value
-keywords = userInput['Keywords'].value
-Plname = userInput['Plname'].value
-Classname = userInput['Classname'].value
+try:    
+    parseSkip = userInput['parseSkip'].value
+except:
+    parseSkip=''
+try:    
+    keywords = userInput['Keywords'].value
+except:
+    keywords = ''
+try:    
+    Plname = userInput['Plname'].value
+except:
+    Plname = ''
+try:    
+    Classname = userInput['Classname'].value
+except:
+    Classname = ''
 
 # Text variable clearers:  
 
