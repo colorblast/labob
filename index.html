@@ -37,8 +37,7 @@
 			Unfortunately, there is no style guide in CTAN or around the web for CSE formatting with LaTeX.-->
          </select>
           <br><br>
-        Pick font size (leave empty to use default autofont setting): <input type="number" name="fSize">
-         <br><br>
+       
          <table border="1">
             <th>Basic Information:</th>
             <tr><td style="white-space: nowrap;"><br>Your Name: <input type="text" name="authname" placeholder="First(s) Last"></th><br><i>For MLA formatting, separate your first and last name with a space.</i><br><br>
@@ -46,7 +45,7 @@
                   Date: <input type="text" name="date"><br><br>
 				  Your Professor's Last Name: <input type="text" name="Plname" value="" placeholder="Dr. Brooks"> <i>for MLA format only; <b>Required by MLA</b></i> &nbsp; &nbsp<br><br>
                     Class Name: <input type="text" name="Classname" value="" placeholder="Calculus 101"> <i>for MLA format only; <b>Required by MLA</b></i><br><br>
-           Affiliation: <!--<input type="checkbox" name="AffiliationCHOOSER" value="True" checked="checked">--><input type="text" name="Affiliation" value="" placeholder="Sponsor or University"> <i>for APA format only</i></input>
+           Affiliation: <!--<input type="checkbox" name="AffiliationCHOOSER" value="True" checked="checked">--><input type="text" name="Affiliation" value="" placeholder="Sponsor or University"> <i>for APA format only</i></input><br>
             </td>
              </tr>  
          </table>
@@ -60,6 +59,32 @@
                <option>Turabian</option>
                <option>CSE (Council of Science Editors)</option>
          </select> -->
+		          I want: 
+         <input selected type="radio" name="function" value="tex"> TeX Code      
+         <input type="radio" name="function" value="pdf"> Typeset PDF
+	 <input type="radio" name="function" value="webpage"> Webpage (hosted on marge)
+         <br><br>
+		 <table border="1">
+            <th>Specific Preferences:</th>
+            <tr><td style="white-space: nowrap;"><br>
+         <input type="checkbox" name="landscape" value="True">
+         Format in landscape orientation?
+         <br><br>
+		  Pick font size <i>(leave empty to use default autofont setting)</i>: <input type="number" name="fSize"> &nbsp; &nbsp
+         <br><br>
+         Choose paper size:
+         <select name="paperStyle">
+            <option selected value="letterpaper">US Letter</option>
+            <option value="a4">A4</option>
+            <option value="a5">A5</option>
+         </select>
+         <br><br>
+         <input type="checkbox" name="parseSkip" value="True"> Activate to begin paragraphs with an empty line rather than an indent.<br>
+         <i>Leave unchecked to prevent format overiding format standards.</i><br><br>
+         <input type="checkbox" name="qCorrect" value="True">
+         Attempt fixing quotation marks to conform to LaTeX standards?<br><br></td></td></table>
+	 <br> &nbsp; &nbsp &nbsp; &nbsp
+         <input type="submit" name="submit" value="Submit"> &nbsp; &nbsp<i>Wait! Did you enter your main text below?</i><br><br>
          Keywords <i>for APA format only</i>:<br>
          <textarea rows="1" name="Keywords" cols="100" placeholder="Biology, synergy, mitochondria..."></textarea>
 </textarea>
@@ -69,11 +94,9 @@
 </textarea>
          <br><br>
          Body Text (For HTML format your equations using <a href="mathtype.html">MathType</a>): <br>
-         <textarea rows="100" name="body" cols="100" placeholder="Here goes your essay/paper.">
-		 
-		 Bill says "This is a test"</textarea>
+         <textarea rows="100" name="body" cols="100" placeholder="Here goes your essay/paper."></textarea>
 </textarea>
-         <br><br>
+         <br><br><!--
          I want: 
          <input type="radio" name="function" value="tex"> TeX Code      
          <input type="radio" name="function" value="pdf"> Typeset PDF
@@ -95,9 +118,11 @@
          Attempt fixing quotation marks to conform to LaTeX standards?
 	 
          <input type="submit" name="submit" value="Submit">
-      </form>
-       <br>
-       <a href="https://raw.githubusercontent.com/JonW27/labob/master/LICENSE">License</a>
+      </form>-->
+		  &nbsp; &nbsp &nbsp; &nbsp
+         <input type="submit" name="submit" value="Submit">
+       <br><br>
+       <a href="http://www.gnu.org/licenses/gpl-3.0-standalone.html">License</a>
        <a href="privacy.html">Privacy Policy w/ Warrant Canary</a>
        <a href="about.html">About this project</a>
        </div>
