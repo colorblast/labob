@@ -9,19 +9,22 @@
         .author:hover {
             color: #00FFFF;
         }
+        .new {
+            font-size: 8px;
+        }
 	</style>
     <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>  --> 
 	<link href="css/main.css" rel="stylesheet" type="text/css">
    </head>
    <body>
    	<h1>
-<span class="latex">L<sup>a</sup>T<sub>e</sub>X</span><span id="title"> Labob<br><small id="authors"><a href="http://tinyurl.com/6chgggo" class="author">Brian Isakov</a> and <a href="http://hackthe.tech" class="author">Jonathan Wong</a></small></span></h1>
+<span class="latex">L<sup>a</sup>T<sub>e</sub>X</span><span id="title"> Labob <small>v1.0&nbsp;&nbsp;<span class="new"><a href="intro.html">New to Latex?</a></span></small><br><small id="authors"><a href="http://tinyurl.com/6chgggo" class="author">Brian Isakov</a> and <a href="http://hackthe.tech" class="author">Jonathan Wong</a></small></span></h1>
       <br>
       <br>
       <br>
        <div id="body">
       <form method="POST" action="processor.py">
-         Choose typesetting format: 
+         Choose typesetting format <i>Note: Marge currently only supports the standard format so if you're generating a PDF please choose standard, or it will not do anything</i>: 
          <select name="format" size="1">
             <option selected value="Standard">Standard</option>
             <option value="MLA">MLA 7 (Modern Language Association 7th Edition)</option>
