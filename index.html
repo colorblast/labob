@@ -24,7 +24,7 @@
       <br>
        <div id="body">
       <form method="POST" action="processor.py">
-         Choose typesetting format <i>Note: Marge currently only supports the standard format so if you're generating a PDF please choose standard, or it will not do anything</i>: 
+         Choose typesetting format: 
          <select name="format" size="1">
             <option selected value="Standard">Standard</option>
             <option value="MLA">MLA 7 (Modern Language Association 7th Edition)</option>
@@ -35,7 +35,8 @@
 		<option value="" disabled id="spec"><i>Note: Turabian is a predecessor to Chicago format.</i></option>
             <!--<option>CSE (Council of Science Editors)</option>
 			Unfortunately, there is no style guide in CTAN or around the web for CSE formatting with LaTeX.-->
-         </select>
+         </select><br>
+		 <i>Note: Marge currently only supports the standard format. If you will be generating a PDF with the school server, the PDF will be automatically generated with the Standard format.</i>
           <br><br>
 		  <b>Fun Example:</b> Try leaving the fields in Basic Information, Abstract, and Body Text empty to have a reserved example generated.
        <br><br>

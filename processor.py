@@ -616,23 +616,23 @@ graphicxstopper=""
 
 articleclass="article"
 # Document Formatting Changes:
-if docFormat == "Standard":
+if docFormat == "Standard" or fxn=="pdf":
 	documentclassb=fontsize+", oneside"
-if docFormat == "Turabian (Standard)":
+elif docFormat == "Turabian (Standard)":
 	articleclass="turabian-formatting"
 	documentclassb=fontsize
-if docFormat == "Turabian (Research Paper)":
+elif docFormat == "Turabian (Research Paper)":
 	articleclass="turabian-researchpaper"
 	documentclassb=fontsize
-if docFormat == "Turabian (Thesis or Dissertation)":
+elif docFormat == "Turabian (Thesis or Dissertation)":
 	articleclass="turabian-thesis"
 	documentclassb=fontsize
-if docFormat == "APA":
+elif docFormat == "APA":
 	articleclass="apa6" # http://ctan.mackichan.com/macros/latex/contrib/apa6/apa6.pdf
 	apaAffiliation=r"\affiliation{"+affiliation+"}"
 	apaAbstract="\abstract{"+abstract+"}" #Warning! New abstract needs to be added to query page!
 	apaKeywords="\keywords{"+keywords+"}"
-if docFormat == "MLA":
+elif docFormat == "MLA":
 	articleclass="article"
 	mlapackager="\usepackage{mla}"
 	mla=r"\begin{mla}{"+fname+"}{"+lname+"}{"+Plname+"}{"+Classname+"}{"+date+"}{"+title+"}"
