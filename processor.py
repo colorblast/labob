@@ -708,6 +708,15 @@ lbasic='''
 #subprocess.call(['shell scripts/convertToPDF.sh', str(fileName)])
 # above statement will need the temp file as fileName for it to be passed to the shell script
 
+bodytextHTML = bodyText.replace('\begin{enumerate}', '<ol>')
+bodytextHTML = bodytextHTML.replace('\end{enumerate}', '</ol>')
+bodysplit = bodytextHTML.split('\n')
+for line in range(len(bodysplit)):
+    if bodysplit[line].startswith('\item'):
+        bodysplit[line].strip('\item')
+        bodysplit[line] = '<li>'+bodysplit[line]+'</li>'
+bodytextHTML = '\n'.join(bodysplit)        
+
 stuff = '''
 <!DOCTYPE html>
 <html lang="en">
@@ -720,14 +729,18 @@ stuff = '''
         <script src="js/renderer.js"></script>
         <style>
             @font-face { font-family: latex; src: url('../fonts/cmunrm.ttf'); }
-            body { font-family: latex, serif; }
+            body {
+                font-family: latex, serif;
+                margin-left: 50px;
+                margin-right: 50px;
+            }
             h1, h2 {
                 text-align: center;
             }
         </style>    
     </head>
     <body>
-'''+'<h1>'+title+'</h1>'+'<h2>'+author+'<br>'+keywords+'</h2>'+bodyText+'''
+'''+'<h1>'+title+'</h1>'+'<h2>'+author+'<br>'+keywords+'</h2>'+bodytextHTML+'''
     </body>
 </html>    
 '''
