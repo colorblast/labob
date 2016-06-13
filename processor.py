@@ -709,7 +709,7 @@ lbasic='''
 # above statement will need the temp file as fileName for it to be passed to the shell script
 
 bodytextHTML = bodyText
-bodytextHTML = bodytextHTML.replace('\begin{enumerate}', '<ol>')
+bodytextHTML = bodytextHTML.replace(r'\begin{enumerate}', '<ol>')
 bodytextHTML = bodytextHTML.replace('\end{enumerate}', '</ol>')
 bodysplit = bodytextHTML.split('\n')
 for line in range(len(bodysplit)):
@@ -717,7 +717,7 @@ for line in range(len(bodysplit)):
         bodysplit[line] = '<li>'+bodysplit[line][5:]+'</li>'
     if bodysplit[line].startswith('\section{'):
         bodysplit[line] = '<h3>'+bodysplit[line][9:-1] + '</h3>'
-    if bodysplit[line].startswith('\textit{'):
+    if bodysplit[line].startswith(r'\textit{'):
         bodysplit[line] = '<i>'+bodysplit[line][8:-1] + '</i>'
     if bodysplit[line].startswith('\subsection{'):
         bodysplit[line] = '<h3><small>'+bodysplit[line][12:-1] + '</small></h3>'
