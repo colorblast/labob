@@ -727,8 +727,8 @@ for line in range(len(bodysplit)):
         bodysplit[line] = '<h4>'+bodysplit[line][15:-1] + '</h4>'
     if bodysplit[line].startswith(r'\large{'):
         bodysplit[line] = '<span class="spec">'+bodysplit[line][7:-1] + '</span>'
-    if bodysplit[line].startswith(r'\textbf{'):
-        bodysplit[line] = '<b>'+bodysplit[line][8:-1] + '</b>'
+    if bodysplit[line].find(r'\textbf{') != -1:
+        bodysplit[line] = bodysplit[line][:bodysplit[line].index(r'\textbf{')]+'<b>'+bodysplit[line][bodysplit[line].index(r'\textbf{'):-1] +'</b>'
 bodytextHTML = '<br>'.join(bodysplit)        
 
 stuff = '''
@@ -752,7 +752,7 @@ stuff = '''
                 text-align: center;
             }
             .spec {
-                font-size: 16px;
+                font-size: 18px;
             }
         </style>    
     </head>
