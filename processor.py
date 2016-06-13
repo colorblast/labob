@@ -710,6 +710,8 @@ lbasic='''
 
 bodytextHTML = bodyText
 bodytextHTML = bodytextHTML.replace(r'\begin{enumerate}', '<ol>')
+bodytextHTML = bodytextHTML.replace(r'\ldots', '')
+bodytextHTML = bodytextHTML.replace(r'\vfill', '')
 bodytextHTML = bodytextHTML.replace('\end{enumerate}', '</ol>')
 bodysplit = bodytextHTML.split('\n')
 for line in range(len(bodysplit)):
@@ -723,6 +725,10 @@ for line in range(len(bodysplit)):
         bodysplit[line] = '<h3><small>'+bodysplit[line][12:-1] + '</small></h3>'
     if bodysplit[line].startswith('\subsubsection{'):
         bodysplit[line] = '<h4>'+bodysplit[line][15:-1] + '</h4>'
+    if bodysplit[line].startswith(r'\large{'):
+        bodysplit[line] = '<span class="spec">'+bodysplit[line][7:-1] + '</span>'
+    if bodysplit[line].startswith(r'\textbf{'):
+        bodysplit[line] = '<b>'+bodysplit[line][8:-1] + '</b>'
 bodytextHTML = '<br>'.join(bodysplit)        
 
 stuff = '''
@@ -744,6 +750,9 @@ stuff = '''
             }
             h1, h2 {
                 text-align: center;
+            }
+            .spec {
+                font-size: 16px;
             }
         </style>    
     </head>
