@@ -717,7 +717,11 @@ for line in range(len(bodysplit)):
     if bodysplit[line].startswith('\section{'):
         bodysplit[line] = '<h3>'+bodysplit[line][9:-1] + '</h3>'
     if bodysplit[line].startswith('\textit{'):
-        bodysplit[line] = '<i>'+bodysplit[line][8:-1] + '</i>'    
+        bodysplit[line] = '<i>'+bodysplit[line][8:-1] + '</i>'
+    if bodysplit[line].startswith('\subsection{'):
+        bodysplit[line] = '<h3><small>'+bodysplit[line][12:-1] + '</small></h3>'
+    if bodysplit[line].startswith('\subsubsection{'):
+        bodysplit[line] = '<h4>'+bodysplit[line][12:-1] + '</h4>'
 bodytextHTML = '\n'.join(bodysplit)        
 
 stuff = '''
