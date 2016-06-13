@@ -708,7 +708,8 @@ lbasic='''
 #subprocess.call(['shell scripts/convertToPDF.sh', str(fileName)])
 # above statement will need the temp file as fileName for it to be passed to the shell script
 
-bodytextHTML = bodyText.replace('\begin{enumerate}', '<ol>')
+bodytextHTML = bodyText
+bodytextHTML = bodytextHTML.replace('\begin{enumerate}', '<ol>')
 bodytextHTML = bodytextHTML.replace('\end{enumerate}', '</ol>')
 bodysplit = bodytextHTML.split('\n')
 for line in range(len(bodysplit)):
@@ -721,7 +722,7 @@ for line in range(len(bodysplit)):
     if bodysplit[line].startswith('\subsection{'):
         bodysplit[line] = '<h3><small>'+bodysplit[line][12:-1] + '</small></h3>'
     if bodysplit[line].startswith('\subsubsection{'):
-        bodysplit[line] = '<h4>'+bodysplit[line][12:-1] + '</h4>'
+        bodysplit[line] = '<h4>'+bodysplit[line][15:-1] + '</h4>'
 bodytextHTML = '\n'.join(bodysplit)        
 
 stuff = '''
@@ -785,7 +786,7 @@ redirectPDF = '<script>window.location.href="output.pdf";</script>'
 redirectHTML = '<script>window.location.href="output.html";</script>'
 
 # Document Handling:
-# !! texman() is depreceated.
+# !! texman() is deprecated.
 def texman():
     print HTML_HEADER
     if fxn == "tex":
