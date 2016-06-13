@@ -723,7 +723,7 @@ for line in range(len(bodysplit)):
         bodysplit[line] = '<h3><small>'+bodysplit[line][12:-1] + '</small></h3>'
     if bodysplit[line].startswith('\subsubsection{'):
         bodysplit[line] = '<h4>'+bodysplit[line][15:-1] + '</h4>'
-bodytextHTML = '\n'.join(bodysplit)        
+bodytextHTML = '<br>'.join(bodysplit)        
 
 stuff = '''
 <!DOCTYPE html>
