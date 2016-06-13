@@ -713,10 +713,12 @@ bodytextHTML = bodytextHTML.replace('\end{enumerate}', '</ol>')
 bodysplit = bodytextHTML.split('\n')
 for line in range(len(bodysplit)):
     if bodysplit[line].startswith('\item'):
-        bodysplit[line].replace('\item','<li>')
-        bodysplit[line] = bodysplit[line]+'</li>'    
-bodytextHTML = '\n'.join(bodysplit)
-
+        bodysplit[line].strip('\item')
+        bodysplit[line] = '<li>'+bodysplit[line]+'</li>'
+    if bodysplit[line].startswith('\section{'):
+        bodysplit[line].strip('\section{')
+        bodysplit[line] = '<h2>'+bodysplit[line][:-1] + '</h2>'
+bodytextHTML = '\n'.join(bodysplit)        
 
 stuff = '''
 <!DOCTYPE html>
