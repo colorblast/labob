@@ -728,7 +728,7 @@ for line in range(len(bodysplit)):
     if bodysplit[line].startswith(r'\large{'):
         bodysplit[line] = '<span class="spec">'+bodysplit[line][7:-1] + '</span>'
     if bodysplit[line].find(r'\textbf{') != -1:
-        bodysplit[line] = bodysplit[line][:bodysplit[line].index(r'\textbf{')]+'<b>'+bodysplit[line][bodysplit[line].index(r'\textbf{'):-1] +'</b>'
+        bodysplit[line] = bodysplit[line][:bodysplit[line].index(r'\textbf{')]+'<b>'+bodysplit[line][bodysplit[line].index(r'\textbf{')+1:] +'</b>'
 bodytextHTML = '<br>'.join(bodysplit)        
 
 stuff = '''
