@@ -717,6 +717,9 @@ for lin in range(len(bodyTextSplit)):
             os.chdir('images')
             subprocess.Popen("wget "+url, shell=True)
             os.chdir('../')
+            parts = url.split("/")
+            url = 'images/'+parts[len(parts)-1]
+            bodyTextSplit[lin] = r'\includegraphics{'+url+'}'
 bodyText = '\n'.join(bodyTextSplit)        
         
     
