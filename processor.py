@@ -708,6 +708,18 @@ lbasic='''
 #subprocess.call(['shell scripts/convertToPDF.sh', str(fileName)])
 # above statement will need the temp file as fileName for it to be passed to the shell script
 
+# for pdfs and webpages \includegraphics needs to be changed so that images are displayed. NOTE images from the TeX code will not work unless saved in local dir
+bodyTextSplit = bodyText.split('\n')
+for lin in range(len(bodyTextSplit)):
+    if bodyTextSplit[lin].startswith(r'\includegraphics{'):
+        url = bodyTextSplit[lin][17:-1]
+        if url.endswith('.jpg') or url.endswith('.jpeg') or url.endswith('.png') or url.endswith('.gif') or url.endswith('.svg'):
+            os.chdir('images')
+            subprocess.Popen("wget "+url, shell=True)
+            os.chdir('../')
+bodyText = '\n'.join(bodyTextSplit)        
+        
+    
 bodytextHTML = bodyText
 bodytextHTML = bodytextHTML.replace(r'\begin{enumerate}', '<ol>')
 bodytextHTML = bodytextHTML.replace(r'\ldots', '')
