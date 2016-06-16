@@ -711,7 +711,7 @@ lbasic='''
 # for pdfs and webpages \includegraphics needs to be changed so that images are displayed. NOTE images from the TeX code will not work unless saved in local dir
 bodyTextSplit = bodyText.split('\n')
 for lin in range(len(bodyTextSplit)):
-    if bodyTextSplit[lin].startswith(r'\includegraphics{'):
+    if bodyTextSplit[lin].startswith(r'\includegraphics'):
         url = bodyTextSplit[lin][17:-1]
         if url.endswith('.jpg') or url.endswith('.jpeg') or url.endswith('.png') or url.endswith('.gif') or url.endswith('.svg'):
             os.chdir('images')
