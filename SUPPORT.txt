@@ -1,0 +1,5 @@
+This server supports all LaTeX standard functionality plus a limited graphicx package.
+
+It DOES NOT support MLA7, APA6, Turabian, etc.
+
+-- Jonathan
