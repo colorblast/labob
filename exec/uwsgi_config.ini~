@@ -1,0 +1,15 @@
+[uwsgi]
+;binary-path = /data/www/labob/exec/uwsgi_latest_from_installer
+;http-socket = 9091
+;plugins = cgi
+UWSGI-PROFILE = cgi.ini make -f Makefile
+socket = 127.0.0.1:9000
+chdir = /data/www/labob/exec
+module = pyindex
+cgi = /exec=/data/www/labob/exec
+cgi-helper =.py=python
+wsgi-file = hello.py
+;So2
+;callable = application
+;pp=/data/www/labob/exec
+;module=filename

@@ -1,0 +1,456 @@
+% Turabian Formatting for LaTeX -- Package Documentation
+%
+% ==============================
+% Copyright 2013-2016 Omar Abdool
+%
+% This work may be distributed and/or modified under the conditions of the LaTeX
+% Project Public License (LPPL), either version 1.3 of this license or (at your
+% option) any later version.
+%
+% The latest version of this license is in:
+%	http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX version
+% 2005/12/01 or later.
+%
+% LPPL Maintenance Status: maintained (by Omar Abdool)
+%
+% This work consists of the files: turabian-formatting.sty,
+% turabian-researchpaper.cls, turabian-thesis.cls, turabian-formatting-doc.tex,
+% and turabian-formatting-doc.pdf (in addition to the README file).
+%
+% ==============================
+% Last updated: 2016/03/18
+%
+%
+
+
+\documentclass{article}
+
+\usepackage{polyglossia, fontspec, csquotes}
+\setmainlanguage{english}
+\defaultfontfeatures{Ligatures=TeX}
+
+\usepackage{filecontents}
+\begin{filecontents}{references.bib}
+	@book{turabian_manual_2013,
+		author = {Turabian, Kate L.},
+		edition = {8th edition},
+		title = {A Manual for Writers of Research Papers, Theses, and Dissertations: Chicago Style for Students and Researchers},
+		shorttitle = {A Manual for Writers of Research Papers, Theses, and Dissertations},
+		publisher = {University of Chicago Press},
+		year = {2013}}
+\end{filecontents}
+
+\usepackage[authordate,backend=biber]{biblatex-chicago}
+\addbibresource{references.bib}
+
+\usepackage{units, metalogo, setspace}
+
+\usepackage{marginnote}
+\renewcommand*{\raggedleftmarginnote}{}
+\renewcommand*{\marginfont}{\ttfamily}
+\renewcommand*{\marginnotevadjust}{1\baselineskip}
+
+\usepackage{geometry}
+\geometry{top=1.5in, bottom=1.75in, left=1.75in, right=1.75in}
+
+\usepackage[bottom, marginal]{footmisc}
+
+\interfootnotelinepenalty=10000
+
+\usepackage[defaultlines=2, all]{nowidow}
+
+\usepackage[hidelinks]{hyperref}
+
+\usepackage{ellipsis}
+
+\usepackage{listings}
+\lstset{%
+	language=TeX,
+	aboveskip=10pt,
+	belowskip=0pt,
+	showstringspaces=false,
+	columns=flexible,
+	basicstyle={\normalsize\ttfamily},
+	numbers=none,
+	breaklines=true,
+	breakatwhitespace=true,
+	breakindent=0pt}
+
+
+\title{Turabian Formatting for \LaTeX{}}
+\author{Omar Abdool \\
+{\normalsize \href{mailto:turabian.formatting@gmail.com}{turabian.formatting@gmail.com}}}
+\date{\today}
+
+
+
+\begin{document}
+
+\maketitle
+
+\renewcommand{\abstractname}{}
+
+\begin{abstract}
+\noindent This package provides Chicago-style formatting based on Kate L. Turabian's \emph{A Manual for Writers of Research Papers, Theses, and Dissertations: Chicago Style for Students and Researchers} (8th edition).
+\end{abstract}
+
+
+\tableofcontents
+
+% Formatting for document content
+
+\newgeometry{top=1.75in, bottom=1.75in, left=2.25in, right=1.25in, marginparsep=0.25in, marginparwidth=1.25in}
+
+\reversemarginpar
+\setlength\parindent{0in}
+\setlength\parskip{1\baselineskip}
+
+
+
+\section*{Introduction}
+\label{sec:introduction}
+
+This package provides Chicago-style formatting based on Kate L. Turabian's \emph{A Manual for Writers of Research Papers, Theses, and Dissertations: Chicago Style for Students and Researchers}, 8th edition. In doing so, this package adheres closely to the formatting guidelines described in Turabian's work while, also, being readily adaptable to additional formatting requirements (e.g. formatting requirements specific to an institution and/or department).
+
+It is hoped that authors will find this package relatively easy to implement. There are few (if any) new commands to learn, as the package builds upon (and makes adjustments to) already-existing \LaTeX{} commands. As such, formatting research papers, theses, and dissertations should require a minimum amount of changes to a standard \LaTeX{} source file (your \texttt{.tex} file).
+
+For citations, this package is designed to work well with David Fussner's outstanding (and highly-recommended) \texttt{biblatex-chicago}.
+
+
+
+\section{Using the Document Classes and Package}
+\label{sec:implementation}
+
+A document may be formatted using \texttt{turabian-formatting} in one of three ways: either (1) specifying the document class as a turabian-formatted research paper (\texttt{turabian-researchpaper}), (2) specifying the document class as a thesis/dissertation with turabian-style formatting (\texttt{turabian-thesis}), or (3) loading the package in the \LaTeX{} source-file preamble.
+
+
+\subsection{Document Class for Research Papers}
+
+\marginnote{turabian-\newline researchpaper}%
+The \texttt{turabian-researchpaper} document class provides formatting specific to research papers. The requisite code:
+\begin{lstlisting}
+	\documentclass{turabian-researchpaper}
+\end{lstlisting}
+
+This document class builds on the \texttt{turabian-formatting} package and is based on the \texttt{article} document class.
+
+
+\clearpage
+\subsection{Document Class for Theses and Dissertations}
+
+\marginnote{turabian-thesis}%
+The \texttt{turabian-thesis} document class offers formatting specific to theses and dissertations. The requisite code:
+\begin{lstlisting}
+	\documentclass{turabian-thesis}
+\end{lstlisting}
+
+This document class builds on the \texttt{turabian-formatting} package and is based on the \texttt{book} document class. As such, support for chapter headings (\texttt{\textbackslash chapter} and \texttt{\textbackslash chapter*}), title pages specific to theses/dissertations (refer to subsection~\ref{subsec:titlepage}), table of contents, and formatting commands to structure the document into front matter, main matter, and back matter (refer to subsection~\ref{subsec:td_structure}), are also included.
+
+
+\subsection{Package for Turabian-Style Formatting}
+
+\marginnote{turabian-\newline formatting}%
+The \texttt{turabian-formatting} package can be loaded in the preamble of the source file as follows:\footnote{%
+	The \texttt{turabian-formatting} package has been tested with the standard \texttt{article}, \texttt{report}, and \texttt{book} \LaTeX{} document classes. If the document class is either \texttt{turabian-researchpaper} or \texttt{turabian-thesis}, however, do not load the \texttt{turabian-formatting} package again.}
+
+\begin{lstlisting}
+	\usepackage{turabian-formatting}
+\end{lstlisting}
+
+This package should always be loaded \emph{before} using the \texttt{biblatex-chicago} package.
+
+
+\section{Formatting Options}
+\label{sec:formatting_options}
+
+The \texttt{turabian-formatting} package adheres to the manual's guidelines on the formatting of text. This includes double-spacing all text throughout the document except items that should have single-spacing \autocite[373]{turabian_manual_2013}.\footnote{%
+	Double-spaced text is typeset with a \texttt{\textbackslash baselinestretch} of \texttt{2}. This is different than the default values provided by the \texttt{setspace} package.}
+Paragraph indentation is set to 0.5 inches.
+
+Page margins, by default, are 1 inch from the edges of the paper.
+
+The \texttt{turabian-thesis} document class has an additional binding offset of 0.5 inches, effectively creating a left/inside margin of 1\nicefrac{1}{2} inches.\footnote{%
+	This is accomplished by \texttt{turabian-thesis} making changes to the following lengths: (1) setting \texttt{\textbackslash oddsidemargin} to \texttt{0.5in}; (2) setting \texttt{\textbackslash evensidemargin} to \texttt{0}; and (3) adding \texttt{-0.5in} to \texttt{\textbackslash textwidth}.}
+
+
+\subsection{Standard Options for Document Classes}
+Both \texttt{turabian-thesis} and \texttt{turabian-researchpaper} document classes support most of the standard document class options.
+
+The default \texttt{normal} font size is twelve-point type (\texttt{12pt})---the preferred font type size for the body of the text \autocite[373]{turabian_manual_2013}. This package also supports \texttt{normal} font type sizes of \texttt{10pt} and \texttt{11pt}.
+
+The default page size, for both document classes, is 8\nicefrac{1}{2} × 11 inches (US Letter size). And as with other standard \LaTeX{} document classes, different paper sizes and can be specified as class options, including \texttt{letterpaper} (the default), \texttt{a4paper}, and \texttt{legalpaper}.
+
+The \texttt{twocolumn} option, however, is not supported. More so, the \texttt{turabian-thesis} document class does not support the \texttt{notitlepage} option either.
+
+Both documents classes, by default, are set to \texttt{oneside}.
+
+
+\subsection{Ragged Right (Left Align) Text}
+
+\marginnote{raggedright}%
+By default, text consisting of more than one line is justified on both sides of the document with the last line flush left. Turabian, however, recommends setting ``your word processor to align text flush left with a ragged right margin" while also not using its ``automated hyphenation feature" \autocite[404]{turabian_manual_2013}. For ragged right formatting without hyphenations throughout the work, use the \texttt{raggedright} formatting option.
+
+
+\subsection{Notes-Bibliography and Author-Date Styles}
+
+This package is designed to work well with the \texttt{biblatex-chicago} package. This includes support for both notes-bibliography and author-date citation styles (the former being the default style).
+
+If the \texttt{biblatex-chicago} package is loaded by the user, the following options are passed to \texttt{biblatex-chicago}: \texttt{isbn=false}, \texttt{autolang=other}, \texttt{footmarkoff}, and \texttt{backend=biber}. The \texttt{\textbackslash printbibliography} command will provide a bibliography with \emph{Bibliography} as the default heading, irrespective of the document class.
+
+\marginnote{authordate}%
+Support for the author-date style is enabled by specifying the \texttt{authordate} formatting option. This option passes an \texttt{authordate} option to \texttt{biblatex-chicago} as well as redefines the default heading for the references list (also typeset using the \texttt{\textbackslash printbibliography} command) to that of \emph{References}.
+
+\marginnote{noadjustbib}%
+Adjustments made to \texttt{\textbackslash printbibliography} can be disabled using the \texttt{noadjustbib} formatting option. The following code, loaded at the end of the preamble, is affected by this option:
+\begin{lstlisting}
+	\if@authordateformat
+		\DefineBibliographyStrings{english}{%
+			bibliography = {References}}
+	\else
+		\DefineBibliographyStrings{english}{%
+			references = {Bibliography}}
+	\fi
+	\renewcommand{\bibsetup}{\singlespacing}
+	\renewcommand{\bibitemsep}{1\baselineskip}
+	\renewcommand{\bibhang}{0.5in}
+\end{lstlisting}
+
+
+\subsection{Endnotes}
+
+Although footnotes are used by default, endnotes can also be enabled. This is accomplished through the use of the \texttt{endnotes} package.
+
+\marginnote{endnotes}%
+Endnotes can be used by specifying the \texttt{endnotes} formatting option. Through this option, the \texttt{endnotes} package is loaded. More so, the \texttt{endnotes} option causes footnotes to be restarted on each page and labelled using symbols in the sequence of: * $\dagger$ $\ddagger$ $\S$ \autocite[156]{turabian_manual_2013}. The \texttt{notetype=endonly} option is also passed to the \texttt{biblatex-chicago} package.
+
+To produce a list of endnotes, use the \texttt{\textbackslash theendnotes} command provided by the \texttt{endnotes} package. Through the \texttt{endnotes} option, each endnote is single-spaced with a ``blank line between notes." The default heading for this list of endnotes is typeset as \emph{Notes}.\footnote{%
+	The \emph{Notes} heading is typeset using either \texttt{\textbackslash section*} or, if \texttt{\textbackslash chapter} has been defined by the document class, \texttt{\textbackslash chapter*}. If there are no endnotes preceding \texttt{\textbackslash theendnotes}, this command will generate a \emph{Notes} heading with an empty endnotes list.}
+If the document class supports chapters, the numbering of endnotes is also restarted for each chapter. The endnotes list will then have subheadings that divide endnotes by each chapter \autocite[157]{turabian_manual_2013}.
+
+
+\section{Formatting Commands}
+\label{sec:formatting_commands}
+
+
+\subsection{Headings: Chapters, Sections, and Subsections}
+
+The \texttt{turabian-formatting} package provides support for document classes that allow text to be divided into sections and subsections. This package also provides support for document classes that define \texttt{\textbackslash chapter} and \texttt{\textbackslash chapter*}, including the \texttt{report}, \texttt{book}, and \texttt{turabian-thesis} document classes.
+
+\subsubsection*{Chapters}
+
+\marginnote{\textbackslash chapter}
+The \texttt{\textbackslash chapter} command starts a new page and creates a \emph{Chapter} label ``followed by the chapter number at the top of the page" in arabic numerals. The ``descriptive title" of the chapter is placed ``two lines down, following a blank line" and is separated from the first line of following text by ``two blank lines" \autocite[391]{turabian_manual_2013}.
+
+\marginnote{\textbackslash chapter*}
+\texttt{\textbackslash chapter*}, unlike \texttt{\textbackslash chapter}, does not provide a line with a \emph{Chapter} label and numbering nor is it included in the Table of Contents.\footnote{%
+	To add a numberless ``chapter" to the Table of Contents, use the \texttt{\textbackslash addcontentsline} command immediately following the \texttt{\textbackslash chapter*} command. For the \emph{Bibliography} or \emph{References} heading from \texttt{\textbackslash printbibliography} (from the \texttt{biblatex-chicago} package), place this command immediately \emph{after} the use of the \texttt{\textbackslash clearpage} and \texttt{\textbackslash addcontentsline} commands. Using the \texttt{endnotes} option will place the \emph{Notes} heading in the table of contents.}
+This is useful for the titles/headings of specific elements, including \emph{Introduction} \autocite[390]{turabian_manual_2013}, \emph{Abstract} \autocite[389]{turabian_manual_2013}, \emph{Conclusion} \autocite[398]{turabian_manual_2013}, \emph{Appendixes} \autocite[398]{turabian_manual_2013}, \emph{Notes} \autocite[399]{turabian_manual_2013}, and \emph{Bibliography} \autocite[401]{turabian_manual_2013}.
+
+\subsubsection*{Sections and Subsections}
+
+\marginnote{\textbackslash section\newline \textbackslash subsection\newline \textbackslash subsubsection}
+This package provides support for three levels of sections and subsections: \texttt{\textbackslash section}, \texttt{\textbackslash subsection}, and \texttt{\textbackslash subsubsection} (including their asterisked versions). These section and subsection commands do not provide any label or numbering.
+
+\texttt{\textbackslash section} places ``more space before a subhead than after (up to two blank lines before and one line, or double line spacing, after)" \autocite[393]{turabian_manual_2013}.
+
+\marginnote{\textbackslash section*\newline \textbackslash noadjustssect}
+If the document class does not define chapter headings, \texttt{\textbackslash section*} will instead provide two blank lines between the title/subheading and the first line of text. This is particularly useful for the subheadings of specific elements, including \emph{Introduction} \autocite[390]{turabian_manual_2013}, \emph{Notes} \autocite[399]{turabian_manual_2013}, and \emph{Bibliography} \autocite[401]{turabian_manual_2013}. Inserting the \texttt{\textbackslash noadjustssect} command in the document preamble will disable this behaviour.
+
+
+\subsection{Page Styles: Headers and Footers}
+\label{sec:page_styles}
+
+Headers and footers, by default, are placed within the margins. The top of the header is 0.5 inches from the top edge of the page. The baseline of the footer is 0.5 inches from the bottom edge of the page \autocite[372, 374]{turabian_manual_2013}.
+
+\marginnote{\textbackslash pagestyle\newline \textbackslash thispagestyle}
+The layout of the headers and footers are determined by the specific page styles. They are used with the \texttt{\textbackslash pagestyle} and \texttt{\textbackslash thispagestyle} commands.\footnote{%
+	The \texttt{fancyhdr} package can be used to typset (and adjust) these page styles. This includes placing optional text (such as a page identifier) in the header and/or footer \autocite[374]{turabian_manual_2013}.}
+
+\textbf{\texttt{empty}}: An empty page style with no header or footer.
+
+\textbf{\texttt{plain}}: A ``plain" page style that centres the page number in the footer. For a thesis or dissertation, it applies to pages with page numbers in the front matter as well as the first page of each chapter in the main matter and back matter (refer to subsection~\ref{subsec:td_structure}).
+
+\textbf{\texttt{headings}}: The default page style places a page number in the right-hand corner of the header.
+
+
+\subsection{Document Structure for Thesis/Dissertation}
+\label{subsec:td_structure}
+A thesis/dissertation is divided into three, distinct components: (1) front matter, (2) main matter or text of the paper, and (3) back matter \autocite[375]{turabian_manual_2013}. As such, this package provides support for document classes that use the \texttt{\textbackslash frontmatter}, \texttt{\textbackslash mainmatter}, and \texttt{\textbackslash backmatter} commands (such as the \texttt{book} and \texttt{turabian-thesis} document classes).
+
+\subsubsection*{Front Matter}
+
+\marginnote{\textbackslash frontmatter}
+The front matter is declared with the \texttt{\textbackslash frontmatter} command. By default, the \texttt{\textbackslash pagestyle} is set to \texttt{empty} (refer to section~\ref{sec:page_styles}). The numbering of pages in the front matter begins with the title page, although page numbers are not placed on pages until the Table of Contents \autocite[373--374, 376, 380]{turabian_manual_2013}.
+
+\clearpage
+\marginnote{\texttt{\textbackslash tableofcontents}}
+Placing the \texttt{\textbackslash tableofcontents} command in the front matter will cause page numbers to appear on pages with the Table of Contents and subsequent pages of the front matter. These page numbers use roman numerals and are placed in centre of the footer \autocite[373--374]{turabian_manual_2013} using the \texttt{plain} page style (refer to section~\ref{sec:page_styles}).
+
+\subsubsection*{Main Matter}
+
+\marginnote{\textbackslash mainmatter}
+The main matter (or text of the paper) begins with the \texttt{\textbackslash mainmatter} command. Page numbering restarts with arabic numerals, starting with page 1. Page numbers are placed on the right-side of the header, using the \texttt{headings} page style (with the exception of the first page of each chapter, which instead use the \texttt{plain} page style) \autocite[373--374]{turabian_manual_2013}.
+
+\subsubsection*{Back Matter}
+
+\marginnote{\textbackslash backmatter}
+The back matter is declared using the \texttt{\textbackslash backmatter} command. Page numbering and page styles are continued from the main matter \autocite[373--374]{turabian_manual_2013}.
+
+
+\subsection{Title Page}
+\label{subsec:titlepage}
+
+The \texttt{turabian-researchpaper} document class provides a title page intended for research papers.\footnote{%
+	The \texttt{turabian-formatting} package provides a title page for research papers.}
+Page numbering begins immediately following the title page. The \texttt{turabian-thesis} document class, however, provides a ``model" title page intended for a thesis or dissertation. The title page of a thesis/dissertation is included in the page numbering of the front matter \autocite[376, 378]{turabian_manual_2013}.
+
+\marginnote{\textbackslash maketitle}%
+The \texttt{\textbackslash maketitle} command will create a separate title page if the document class specifies (or has as default) the \texttt{titlepage} option---the default option for both \texttt{turabian-researchpaper} and \texttt{turabian-thesis}.
+
+\marginnote{\textbackslash title\newline \textbackslash subtitle\newline \textbackslash author\newline \textbackslash date\newline}
+\texttt{\textbackslash maketitle} uses information specified in the source document preamble, through the following commands (each of which is self-evident): \texttt{\textbackslash title}, \texttt{\textbackslash author}, \texttt{\textbackslash date}, and \texttt{\textbackslash subtitle}. For research paper title pages, footnotes (as well as \texttt{\textbackslash thanks}) can also be used.
+
+\marginnote{\textbackslash submissioninfo}
+For a research paper, \texttt{\textbackslash submissioninfo} is used for typesetting ``any information requested by your instructor," between the name of the course and the date \autocite[376]{turabian_manual_2013}. For a thesis or dissertation title page, however, this command is used to typeset requested information between the title/subtitle and the name of the department.
+
+\marginnote{\textbackslash course}
+\texttt{turabian-researchpaper} provides the optional \texttt{\textbackslash course} command for typesetting course information (such as the name of the course).
+
+\marginnote{\textbackslash institution\newline \textbackslash department\newline \textbackslash location}
+\texttt{turabian-thesis} also provides: (1) \texttt{\textbackslash institution} for typesetting the institution at the top of the page, (2) for typesetting the name of the department, and (3) \texttt{\textbackslash location} for typesetting a location just above the date.
+
+To create a custom title page, use the \texttt{titlepage} environment.
+
+
+\section{Required and Recommended Packages}
+\label{sec:required_packages}
+
+This package requires \LaTeX{}2e and makes use of the following packages installed as part of a standard \LaTeX{} distribution: \texttt{etoolbox}, \texttt{setspace}, \texttt{nowidow}, \texttt{footmisc}, \texttt{endnotes}, \texttt{xparse}, and \texttt{geometry}.\footnote{%
+	The \texttt{geometry} package is only required if using the deprecated \texttt{emptymargins} option.}
+
+The following packages are highly recommended: \texttt{biblatex-chicago}, \texttt{csquotes}, \texttt{fancyhdr}, \texttt{ellipsis}, and \texttt{threeparttable}.
+
+
+\section{Updates}
+\label{sec:updates}
+
+\marginnote{\rmfamily{2016/03/18}}%
+
+Support for changes made to the \texttt{biblatex} package (2016/03/03).
+
+\marginnote{\rmfamily{2016/03/15}}%
+
+An \texttt{authordate} option has been added, improving support for the author-date citation style.
+
+Adjustments to the formatting of both enumerated and itemized lists.
+
+The \texttt{endnotes} option has (1) added support for endnotes that contain an underscore character (\texttt{\_}), and (2) improved the implementation of the \texttt{\textbackslash theendnotes} command.
+
+\marginnote{\rmfamily{2016/02/27}}%
+
+This update is a significant rewrite of \texttt{turabian-formatting}. It is designed to be faster and require fewer packages.
+
+Both \texttt{turabian-researchpaper} and \texttt{turabian-thesis} can use the \texttt{noadjustbib} option.
+
+Significant adjustments made to the \texttt{\textbackslash maketitle} command, including support for footnotes.
+
+Double-spaced text is typeset with a \texttt{\textbackslash baselinestretch} of \texttt{2} using the \texttt{\textbackslash setstretch} command provided by the \texttt{setspace} package (instead of \texttt{\textbackslash doublespacing}). This is different than previous versions of \texttt{turabian-formatting} and should be more-consistent with expectations for ``double spaced" work.
+
+Packages no longer required: \texttt{xifthen}, \texttt{fancyhdr}, \texttt{titlesec}, \texttt{quoting}, \texttt{caption}, \texttt{flafter}, \texttt{url}, and \texttt{chngcntr}.
+
+Deprecated options: \texttt{emptymargins}.
+
+Deprecated commands: \texttt{\textbackslash tablenote}, \texttt{\textbackslash tablesource}, \texttt{\textbackslash faculty}, and \texttt{\textbackslash mydegree}.
+
+Removed commands: \texttt{\textbackslash setpageidentifier}, and \texttt{\textbackslash setwordcount}.
+
+\marginnote{\rmfamily{2015/11/14}}%
+
+Added support for the \texttt{endnotes} package. An \texttt{endnotes} option has been added, removing the need for an \texttt{endnotesonly} option for \texttt{turabian-researchpaper}.
+
+Improved support for the \texttt{biblatex-chicago} package, including added support for the author-date citation style.
+
+Footnote lines are no longer forced together, allowing a footnote to run over to the next page.
+
+Adjustments to the spacing that follow the \texttt{\textbackslash chapter*} and \texttt{\textbackslash section*} commands.
+
+Updated use of page style options, removing the \texttt{fancy} page style.
+
+\texttt{\textbackslash frontmatter} and \texttt{\textbackslash tableofcontents} no longer ignore the \texttt{bindingoffset} value and margin sizes specified in the source document preamble, through the \texttt{geometry} package.
+
+Improved implementation of the \texttt{raggedright} formatting option with: (1) table and figure captions; and (2) the \texttt{\textbackslash tablenote} command.
+
+Adjustments to the behaviour of table and figure positioning.
+
+Deprecated commands: \texttt{\textbackslash setwordcount}, \texttt{\textbackslash setpageidentifier}, and \texttt{\textbackslash tablesource}.
+
+Removed commands: \texttt{\textbackslash mytitlepage} and \texttt{\textbackslash setdraftindicator}.
+
+\marginnote{\rmfamily{2014/12/27}}%
+Formatting changes to both subsection titles and title page for both research papers and theses/dissertations.
+
+\marginnote{\rmfamily{2014/12/10}}%
+Adjustments to formatting that more-accurately reflect the 8th edition of Turabian's \emph{A Manual for Writers of Research Papers, Theses, and Dissertations}.
+
+
+
+%\section{Known Bugs}
+%\label{sec:bugs}
+
+
+
+\printbibliography
+
+
+
+\clearpage
+
+\section*{Appendix: Sample Code for a Research Paper}
+\label{sec:sample_code}
+\addcontentsline{toc}{section}{Appendix: Sample Code for a Research Paper}
+
+The following is for a research paper using the \LaTeX{} markup language.
+\vspace{1.3\baselineskip}
+
+\begin{lstlisting}
+\documentclass{turabian-researchpaper}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{csquotes, ellipsis}
+
+\usepackage{biblatex-chicago}
+\addbibresource{mybibfile.bib}
+
+\title{An Interesting Work}
+\author{Author's Name}
+\date{\today}
+
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+Amazing, introductory ideas that provide unique insight into your field of interest and ``wows" your professor.
+
+\section{An Interesting Section}
+Great thoughts that further your argument. This includes lots of strong evidence presented throughout several paragraphs, each accompanied by necessary citations.\autocite[8]{authortitle2013}
+
+\section{Another Insightful Section}
+More ideas that really make this a great paper. Maybe a footnote or two.\footnote{Some peripheral thoughts.}
+
+\section{Conclusions}
+At this point, you've changed everything (including your marks!). Time to wrap up!
+
+\clearpage
+\printbibliography
+
+\end{document}
+\end{lstlisting}
+
+
+\end{document}
+
+

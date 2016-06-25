@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Latex Query</title>
+	<style>
+        .author {
+            color: white;
+        }
+        .author:hover {
+            color: #00FFFF;
+        }
+        .new {
+            font-size: 8px;
+        }
+	</style>
+    <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>  --> 
+	<link href="css/main.css" rel="stylesheet" type="text/css">
+   </head>
+   <body>
+   	<h1>
+<span class="latex">L<sup>a</sup>T<sub>e</sub>X</span><span id="title"> Labob <small>v1.2.1&nbsp;&nbsp;<span class="new"><a href="intro.html">New to Latex?</a></span></small><br><small id="authors"><a href="http://tinyurl.com/6chgggo" class="author">Brian Isakov</a> and <a href="http://hackthe.tech" class="author">Jonathan Wong</a></small></span></h1>
+      <br>
+      <br>
+      <br>
+       <div id="body">
+      <form method="POST" action="exec/processor.py">
+         Choose typesetting format: 
+         <select name="format" size="1">
+            <option selected value="Standard">Standard</option>
+            <option value="MLA">MLA 7 (Modern Language Association 7th Edition)</option>
+            <option value="APA">APA 6 (American Psychological Association 6th Edition)</option>
+            <option value="Turabian (as Package)">Turabian (as Package)</option>
+<option value="" disabled id="spec"><i>Note: Do not use Turabian (as Package) for authentic Turabian formatting. Instead, use the Turabian options below:</i></option>
+		<option value="Turabian (Research Paper)">Turabian (Research Paper)</option>
+		<option value="Turabian (Thesis or Dissertation)">Turabian (Thesis or Dissertation)</option>
+		<option value="" disabled id="spec"><i>Note: Turabian is a predecessor to Chicago format.</i></option>
+            <!--<option>CSE (Council of Science Editors)</option>
+			Unfortunately, there is no style guide in CTAN or around the web for CSE formatting with LaTeX.-->
+         </select><br>
+		 <i>Note: Marge currently only supports the standard format. If you will be generating a PDF with the school server, the PDF will be automatically generated with the Standard format.</i>
+          <br><br>
+		  <b>Fun Example:</b> Try leaving the fields in Basic Information, Abstract, and Body Text empty to have a reserved example generated.
+       <br><br>
+         <table border="1">
+            <th>Basic Information:</th>
+            <tr><td style="white-space: nowrap;"><br>Your Name: <input type="text" name="authname" placeholder="First(s) Last"></th><br><i>For MLA formatting, separate your first and last name with a space.</i><br><br>
+			Title: <input type="text" name="title" size=50 placeholder="Analysis of Reports"><br><br>
+                  Date: <input type="text" name="date"><br><br>
+				  Your Professor's Last Name: <input type="text" name="Plname" value="" placeholder="Dr. Brooks"> <i>for MLA format only; <b>Required by MLA</b></i> &nbsp; &nbsp<br><br>
+                    Class Name: <input type="text" name="Classname" value="" placeholder="Calculus 101"> <i>for MLA format only; <b>Required by MLA</b></i><br><br>
+           Affiliation: <!--<input type="checkbox" name="AffiliationCHOOSER" value="True" checked="checked">--><input type="text" name="Affiliation" value="" placeholder="Sponsor or University"> <i>for APA format only</i></input><br>
+            </td>
+             </tr>  
+         </table>
+         <br><br><!--
+         Choose "starter" (multiple OK): 
+         <select name="starter" multiple>
+            <option value=0 selected>None</option>
+            <option>Abstract</option>
+            <option>Introduction</option>
+            
+               <option>Turabian</option>
+               <option>CSE (Council of Science Editors)</option>
+         </select> -->
+		          I want: 
+         <input selected type="radio" name="function" value="tex"> TeX Code      
+         <input type="radio" name="function" value="pdf"> Typeset PDF
+	 <input type="radio" name="function" value="webpage"> Webpage (hosted on marge)
+         <br><br>
+		 <table border="1">
+            <th>Specific Preferences:</th>
+            <tr><td style="white-space: nowrap;"><br>
+         <input type="checkbox" name="landscape" value="True">
+         Format in landscape orientation?
+         <br><br>
+		  Pick font size <i>(leave empty to use default autofont setting)</i>: <input type="number" name="fSize"> &nbsp; &nbsp
+         <br><br>
+         Choose paper size:
+         <select name="paperStyle">
+            <option selected value="letterpaper">US Letter</option>
+            <option value="a4">A4</option>
+            <option value="a5">A5</option>
+         </select>
+         <br><br>
+         <input type="checkbox" name="parseSkip" value="True"> Activate to begin paragraphs with an empty line rather than an indent.<br>
+         <i>Leave unchecked to prevent format overiding format standards.</i><br><br>
+         <input type="checkbox" name="qCorrect" value="True">
+         Attempt fixing quotation marks to conform to LaTeX standards?<br><br></td></td></table>
+	 <br> &nbsp; &nbsp &nbsp; &nbsp
+         <input type="submit" name="submit" value="Submit"> &nbsp; &nbsp<i>Wait! Did you enter your main text below?</i><br><br>
+         Keywords <i>for APA format only</i>:<br>
+         <textarea rows="1" name="Keywords" cols="100" placeholder="Biology, synergy, mitochondria..."></textarea>
+</textarea>
+         <br><br>
+         Abstract <i>for APA format only</i>: <br>
+         <textarea rows="10" name="Abstract" cols="100" placeholder="Enter abstract here..."></textarea>
+</textarea>
+         <br><br>
+         Body Text (For HTML format your equations using <a href="mathtype.html">MathType</a>): <br>
+         <textarea rows="100" name="body" cols="100" placeholder="Here goes your essay/paper."></textarea>
+</textarea>
+         <br><br><!--
+         I want: 
+         <input type="radio" name="function" value="tex"> TeX Code      
+         <input type="radio" name="function" value="pdf"> Typeset PDF
+	 <input type="radio" name="function" value="webpage"> Webpage (hosted on marge)
+         <br><br>
+         <input type="checkbox" name="landscape" value="True" checked="checked">
+         Format in landscape orientation?
+         <br><br>
+         Choose paper size:
+         <select name="paperStyle">
+            <option selected value="letterpaper">US Letter</option>
+            <option value="a4">a4</option>
+            <option value="a5">a5</option>
+         </select>
+         <br><br>
+         <input type="checkbox" name="parseSkip" value="True" checked="checked"> Activate to begin paragraphs with an empty line rather than an indent.<br>
+         <i>Leave unchecked to prevent format overiding format standards.</i><br><br>
+         <input type="checkbox" name="qCorrect" value="True" checked="checked">
+         Attempt fixing quotation marks to conform to LaTeX standards?
+	 
+         <input type="submit" name="submit" value="Submit">
+      </form>-->
+		  &nbsp; &nbsp &nbsp; &nbsp
+         <input type="submit" name="submit" value="Submit">
+       <br><br>
+       <a href="http://www.gnu.org/licenses/gpl-3.0-standalone.html">License</a>
+       <a href="privacy.html">Privacy Policy w/ Warrant Canary</a>
+       <a href="https://www.gitbook.com/book/jonw27/latex-labob">Docs</a>
+       <a href="https://github.com/Jonw27/labob">Source Code</a>
+       <a href="about.html">About this project</a>
+       </div>
+   </body>
+</html>
