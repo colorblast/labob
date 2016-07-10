@@ -52,10 +52,14 @@ try:
     qCorrect = userInput['qCorrect'].value
 except:
     qCorrect = ''
-affiliation = ""
+#affiliation = ""
 if userInput.getvalue('AfflationCHOOSER'):
     affiliation = userInput['Affiliation'].value
 #affiliationN = userInput['AffiliationCHOOSER'].value
+try:
+    affiliation = userInput['Affiliation'].value
+except:
+    affiliation = ''
 try:
     abstract = userInput['Abstract'].value
 except:
@@ -80,6 +84,10 @@ try:
     Classname = userInput['Classname'].value
 except:
     Classname = ''
+try:
+    ShortTitle = userInput['ShortTitle'].value
+except:
+    ShortTitle = ''
 
 # Communist Manifesto Example:
 if author=='' and date=='' and title=='' and bodyText=='' and abstract=='':
@@ -87,7 +95,9 @@ if author=='' and date=='' and title=='' and bodyText=='' and abstract=='':
     title="MANIFESTO OF THE COMMUNIST PARTY"
     date="February 1848"
     abstract="WORKING MEN OF ALL COUNTRIES, UNITE!"
-    qCorrect="True"
+    #qCorrect="True"
+    #affiliation="``Working People''"
+    #abstract=""
     bodyText=r'''
 A spectre is haunting Europe -- the spectre of Communism.
 All the Powers of old Europe have entered into a holy alliance to
@@ -616,6 +626,11 @@ mlastop=""
 apaAffiliation=""
 documentclassb=""
 graphicxstopper=""
+apaAbstract=""
+apaKeywords=""
+apaShortTitle=""
+titlebot=r"\title{"+title+"}"
+authorbot=r"\author{"+author+"}"
 
 articleclass="article"
 # Document Formatting Changes:
@@ -633,9 +648,19 @@ elif docFormat == "Turabian (Thesis or Dissertation)":
 	documentclassb=fontsize
 elif docFormat == "APA":
 	articleclass="apa6" # http://ctan.mackichan.com/macros/latex/contrib/apa6/apa6.pdf
-	apaAffiliation=r"\affiliation{"+affiliation+"}"
-	apaAbstract="\abstract{"+abstract+"}" #Warning! New abstract needs to be added to query page!
-	apaKeywords="\keywords{"+keywords+"}"
+	if title=="":
+		titlebot=""
+		maketitle=""
+	if author=="":
+		authorbot=""
+	if affiliation!="":
+		apaAffiliation=r"\affiliation{"+affiliation+"}"
+	if abstract!="":
+		apaAbstract=r"\abstract{"+abstract+"}" #Warning! New abstract needs to be added to query page!
+	if keywords!="":
+		apaKeywords=r"\keywords{"+keywords+"}"
+	if ShortTitle!="":
+		apaShortTitle=r"\shorttitle{"+ShortTitle+"}"
 elif docFormat == "MLA":
 	articleclass="article"
 	mlapackager="\usepackage{mla}"
@@ -699,15 +724,18 @@ lbasic='''
 %SetFonts
 
 
-'''+r"\title{"+title+r'''}
-\author{'''+author+'''}
+'''+titlebot+r'''
+'''+authorbot+r'''
+'''+apaShortTitle+r'''
 '''+apaAffiliation+r'''
-\date{'''+date+'''}							% Activate to display a given date or no date
+'''+apaAbstract+r'''
+'''+apaKeywords+r'''
+\date{'''+date+r'''}							% Activate to display a given date or no date
 
 '''+mlapackager+r'''
 
 \begin{document}
-'''+maketitle+'''
+'''+maketitle+r'''
 '''+mla+'''
 %\section{}
 %\subsection{}

@@ -19,8 +19,17 @@
    <body>
    	<h1>
 <span class="latex">L<sup>a</sup>T<sub>e</sub>X</span><span id="title"> Labob <small>v1.2.1&nbsp;&nbsp;<span class="new"><a href="intro.html">New to Latex?</a></span></small><br><small id="authors"><a href="http://tinyurl.com/6chgggo" class="author">Brian Isakov</a> and <a href="http://hackthe.tech" class="author">Jonathan Wong</a></small></span></h1>
-      <br>
-      <br>
+      
+      <!-- APA Celebratory Banner -->
+	  <h1 style="
+	  text-align: left;
+	font-family: Brush Script MT,cursive;
+	font-size: 24px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px">Now with APA 6 Support!</h1>
+	  <!-- End of Banner: Note loss of <br> tags. -->
       <br>
        <div id="body">
       <form method="POST" action="exec/processor.py">
@@ -37,19 +46,21 @@
             <!--<option>CSE (Council of Science Editors)</option>
 			Unfortunately, there is no style guide in CTAN or around the web for CSE formatting with LaTeX.-->
          </select><br>
-		 <i>Important: The APA format is currently out-of-order. Webpage generation defaults to regular LaTeX Standard formatting, so either download the TeX code or generate a PDF to take the typesetting style into account.</i>
+		 <i>Important: <!--The APA format is currently out-of-order. Not anymore!--> Webpage generation defaults to regular LaTeX Standard formatting. Either download the TeX code or generate a PDF to take the typesetting style into account.</i>
           <br><br>
 		  <b>Fun Example:</b> Try leaving the fields in Basic Information, Abstract, and Body Text empty to have a reserved example generated.
        <br><br>
          <table border="1">
             <th>Basic Information:</th>
             <tr><td style="white-space: nowrap;"><br>Your Name: <input type="text" name="authname" placeholder="First(s) Last"></th><br><i>For MLA formatting, separate your first and last name with a space.</i><br><br>
-			Title: <input type="text" name="title" size=50 placeholder="Analysis of Reports"><br><br>
+			Title: <input type="text" name="title" size=50 placeholder="Analysis of Reports"><br>
+			<i>For APA formatting, a title is required for a header with Basic Information.<br>Do not leave your name blank in this case.</i><br><br>
                   Date: <input type="text" name="date"><br><br>
 				  Your Professor's Last Name: <input type="text" name="Plname" value="" placeholder="Dr. Brooks"> <i>for MLA format only; <b>Required by MLA</b></i> &nbsp; &nbsp<br><br>
                     Class Name: <input type="text" name="Classname" value="" placeholder="Calculus 101"> <i>for MLA format only; <b>Required by MLA</b></i><br><br>
-           Affiliation: <!--<input type="checkbox" name="AffiliationCHOOSER" value="True" checked="checked">--><input type="text" name="Affiliation" value="" placeholder="Sponsor or University"> <i>for APA format only</i></input><br>
-            </td>
+           Affiliation: <!--<input type="checkbox" name="AffiliationCHOOSER" value="True" checked="checked">--><input type="text" name="Affiliation" value="" size=30 placeholder="Sponsor or University"> <i>for APA format only</i></input><br><br>
+           Short Title: <!--<input type="checkbox" name="AffiliationCHOOSER" value="True" checked="checked">--><input type="text" name="ShortTitle" value="" size=35 placeholder="Optional; Leave Blank if Desired"> <i>for APA format only</i></input><br>
+		    </td>
              </tr>  
          </table>
          <br><br><!--
@@ -124,7 +135,9 @@
       </form>-->
 		  &nbsp; &nbsp &nbsp; &nbsp
          <input type="submit" name="submit" value="Submit">
-       <br><br>
+       <br><br><br>
+	   PDF Generation Troubleshooting: <a href="./output.log" class="author">Give me the pdflatex output log</a>
+	   <br><br>
        <a href="http://www.gnu.org/licenses/gpl-3.0-standalone.html">License</a>
        <a href="privacy.html">Privacy Policy w/ Warrant Canary</a>
        <a href="https://www.gitbook.com/book/jonw27/latex-labob">Docs</a>
