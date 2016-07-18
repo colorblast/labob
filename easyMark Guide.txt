@@ -48,18 +48,42 @@ Document structures are numbered by default in standard format.
 Making Chapters:
 ~chapter [Chapter Name]
 Chapter content goes here.
+<<or>>
+~chapter[Chapter Name]
+Chapter content goes here.
+<<or>>
+~chapter
+Untitled chapter content goes here.
 
 Making Sections:
 ~section [Section Name]
 Section content goes here.
+<<or>>
+~section[Section Name]
+Section content goes here.
+<<or>>
+~section
+Untitled section content goes here.
 
 Making Subsections:
 ~subsection [Subsection Name]
 Subsection content goes here.
+<<or>>
+~subsection[Subsection Name]
+Subsection content goes here.
+<<or>>
+~subsection
+Untitled subsection content goes here.
 
 Making Sub-sub-sections:
-~subsubsection [Subsubsection name]
+~subsubsection [Sub-sub-section name]
 Sub-sub-section content goes here.
+<<or>>
+~subsubsection[Sub-sub-section Name]
+Sub-sub-section content goes here.
+<<or>>
+~subsubsection
+Untitled sub-sub-section content goes here.
 ======================================================================================
 
 VISUAL BREAKS AND SYNTAX

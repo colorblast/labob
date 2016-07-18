@@ -1,5 +1,5 @@
 ## Python code for testing and developing easyMark
-def easyMark(string):
+def easyMarkOLD(string):
 	for x in range(len(string)):
 		if string[x]=="~":
 			# Making Lists:
@@ -23,3 +23,102 @@ def easyMark(string):
 				string=string[:x]+r"\chapter{"+string[x+10:yandexf]+"}"+string[yandexf+1:]
 			# Note: Raw strings added, but it is better to check them.
 	return(string)
+
+def easyMark(string):
+        # Making Lists:
+        out=string.replace("~start-list", r"\begin{enumerate}")
+        out=out.replace("~end-list", r"\end{enumerate}")
+        out=out.replace("~ ", r"\item ")
+        out=out.replace("~start-bullets", r"\begin{itemize}")
+        out=out.replace("~end-bullets", r"\end{itemize}")
+        out=out.replace("~start-custom-list", r"\begin{description}")
+        out=out.replace("~end-custom-list", r"\end{description}")
+        # Document Structure:
+        while out.find("~chapter")!=-1:
+                popper=False
+                yandex=out.find("~chapter [")
+                if yandex==-1:
+                        yandex=out.find("~chapter[")
+                        if yandex!=-1:
+                                popper=True
+                        if yandex==-1:
+                                popper='solo'
+                        #out=out.replace("~chapter", r"<<SYNTAX ERROR: Improper Usage>>")
+                        #break
+                bing=out.find("]", yandex)
+                if bing==-1 and popper!='solo':
+                        out=out.replace("~chapter", r"<<SYNTAX ERROR: Improper Document Structure Usage>>")
+                        break
+                if popper==False:
+                        out=out[:yandex]+out[yandex:bing].replace("~chapter [", r"\chapter{")+"}"+out[bing+1:]
+                if popper==True:
+                        out=out[:yandex]+out[yandex:bing].replace("~chapter[", r"\chapter{")+"}"+out[bing+1:]
+                if popper=='solo':
+                        out=out.replace("~chapter",r"\chapter{}")
+        while out.find("~section")!=-1:
+                popper=False
+                yandex=out.find("~section [")
+                if yandex==-1:
+                        yandex=out.find("~section[")
+                        if yandex!=-1:
+                                popper=True
+                        if yandex==-1:
+                                popper='solo'
+                        #out=out.replace("~section", r"<<SYNTAX ERROR: Improper Usage>>")
+                        #break
+                bing=out.find("]", yandex)
+                if bing==-1 and popper!='solo':
+                        out=out.replace("~section", r"<<SYNTAX ERROR: Improper Document Structure Usage>>")
+                        break
+                if popper==False:
+                        out=out[:yandex]+out[yandex:bing].replace("~section [", r"\section{")+"}"+out[bing+1:]
+                if popper==True:
+                        out=out[:yandex]+out[yandex:bing].replace("~section[", r"\section{")+"}"+out[bing+1:]
+                if popper=='solo':
+                        out=out.replace("~section",r"\section{}")
+        while out.find("~subsection")!=-1:
+                popper=False
+                yandex=out.find("~subsection [")
+                if yandex==-1:
+                        yandex=out.find("~subsection[")
+                        if yandex!=-1:
+                                popper=True
+                        if yandex==-1:
+                                popper='solo'
+                        #out=out.replace("~subsection", r"<<SYNTAX ERROR: Improper Usage>>")
+                        #break
+                bing=out.find("]", yandex)
+                if bing==-1 and popper!='solo':
+                        out=out.replace("~subsection", r"<<SYNTAX ERROR: Improper Document Structure Usage>>")
+                        break
+                if popper==False:
+                        out=out[:yandex]+out[yandex:bing].replace("~subsection [", r"\subsection{")+"}"+out[bing+1:]
+                if popper==True:
+                        out=out[:yandex]+out[yandex:bing].replace("~subsection[", r"\subsection{")+"}"+out[bing+1:]
+                if popper=='solo':
+                        out=out.replace("~subsection",r"\subsection{}")
+        while out.find("~subsubsection")!=-1:
+                popper=False
+                yandex=out.find("~subsubsection [")
+                if yandex==-1:
+                        yandex=out.find("~subsubsection[")
+                        if yandex!=-1:
+                                popper=True
+                        if yandex==-1:
+                                popper='solo'
+                        #out=out.replace("~subsubsection", r"<<SYNTAX ERROR: Improper Usage>>")
+                        #break
+                bing=out.find("]", yandex)
+                if bing==-1 and popper!='solo':
+                        out=out.replace("~subsubsection", r"<<SYNTAX ERROR: Improper Document Structure Usage>>")
+                        break
+                if popper==False:
+                        out=out[:yandex]+out[yandex:bing].replace("~subsubsection [", r"\subsubsection{")+"}"+out[bing+1:]
+                if popper==True:
+                        out=out[:yandex]+out[yandex:bing].replace("~subsubsection[", r"\subsubsection{")+"}"+out[bing+1:]
+                if popper=='solo':
+                        out=out.replace("~subsubsection",r"\subsubsection{}")
+        # Visual Breaks:
+        out=out.replace("~hoz-line-break", r"\hrulefill")
+        out=out.replace("~new-page", r"\clearpage")
+        return(out)
